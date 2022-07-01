@@ -1,0 +1,56 @@
+body {
+    background-color: #fef9f8;
+}
+
+h1 {
+    text-align: center;
+    color: #ef9273;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+}
+
+h2 {
+    text-align: center;
+    color: #183a1d;
+    font-family: 'Karma', sans-serif;
+}
+
+h3 {
+    color: #18233a;
+    font-family: 'Karma', sans-serif;
+}
+
+p {
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    font-family: 'Roboto', sans-serif;
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #0000FF; 
+}
+
+a:visited {
+    color: #0B0080; 
+}
+
+a:hover {
+    color: #FF00FF;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #FF0000;
+}
+
+.strong {
+    font-weight: bold;
+}

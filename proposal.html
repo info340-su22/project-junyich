@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="author" content="Ryan Yun, Jasmine Mae Alindayu,
@@ -9,68 +10,101 @@
     <link rel="stylesheet" href="css/proposal.css">
     <title>Mental Health Web Application</title>
 </head>
+
 <body>
     <header>
         <h1>iMental</h1>
     </header>
-    <section>
+    <section id="Problem/Data Domain">
         <h2>Problem/Data Domain</h2>
-        <p>Content of the Problem Domain</p>
+        <section id="What is the Problem">
+            <h3>What is the Problem</h3>
+            <p>On social media and on online platforms, information is constantly being disseminated at an alarming
+                rate. There is a vast amount of posts being shared daily, causing us to barely comprehend the spread and
+                amount of information online. With so much available on the Internet, there are numerous resources that
+                are accessible. Because of the Internet, users can schedule appointments online, contact their doctors
+                or physicians through an app, and learn more about conditions or ailments. However, the apps and
+                information available for mental health are not as trustworthy as we want them to be or adequate enough
+                to support users.</p>
+        </section>
+        <section id="Why the Problem Needs Addressing">
+            <h3>Why the Problem Needs Addressing</h3>
+            <p>The issue that we want to address is the potential harm of unverified information about mental health on
+                social media and on the Internet. There are an abundance of apps that allow users to take surveys to
+                learn whether they may have a particular condition or not. However, most of these surveys are not
+                credible – they do not rely on certified sources, but merely on information from the Internet. Websites
+                like <a href="https://psychcentral.com/" target="_blank">
+                    PsychCentral</a>, <a href="https://www.psychologytoday.com/us" target="_blank">
+                    Psychology Today</a>, and <a href="https://www.talkspace.com/" target="_blank">
+                    Talk Space</a> have surveys for users to take, but the
+                questions are typically too obvious (and are leading at times) and are not backed by any source.</p>
+        </section>
+        <section id="Our Goal">
+            <h3>Our Goal</h3>
+            <p>To prevent unnecessary worry and ensure more credible tests, we aim to create an application that takes
+                information from the DSM-5 and curates questions that are not leading or too obvious to diagnose. After
+                all, our intentions of these tests are to spark awareness and lead users to other resources instead of
+                diagnosing too easily or encouraging answers. Additionally, users will feel more confident knowing that
+                their tests come from a source that is credible and verified.</p>
+        </section>
     </section>
     <br>
     <section id="App Description">
         <h2>App Description</h2>
         <section id="Description of the Application">
             <h3>Description of Web Application</h3>
-            <p>In such a post-pandemic world with the ongoing turmoils, everyone 
-                is subject to unstable mental states and even illness. Our 
-                application aims to provide verified mental and psychological 
-                information to anyone who seeks aid. Mental health issues are as 
-                severe as physical illness. However, most people do not treat them 
-                as such. The main goal of our application is to help people realize 
-                the importance of mental well-being and point them to correct and 
+            <p>In such a post-pandemic world with the ongoing turmoils, everyone
+                is subject to unstable mental states and even illness. Our
+                application aims to provide verified mental and psychological
+                information to anyone who seeks aid. Mental health issues are as
+                severe as physical illness. However, most people do not treat them
+                as such. The main goal of our application is to help people realize
+                the importance of mental well-being and point them to correct and
                 up-to-date information before severe problems occur.</p>
             <p>
-                Our application is mainly an "index" to related psychological and 
-                mental health-related information. Thus, there are <strong>several  
-                interactive features</strong> we plan to implement. 
+                Our application is mainly an "index" to related psychological and
+                mental health-related information. Thus, there are <strong>several
+                    interactive features</strong> we plan to implement.
             </p>
             <ol>
-                <li><strong>Search</strong></li>
-                    <ul>
-                        <li>The first interactive feature we plan to implement is the search.</li>
-                        <li>Users should be able to look up topics they are interested in to 
-                            find related articles.</li>
-                    </ul>
-                <li><strong>Diagnosis Survey</strong></li>
-                    <ul>
-                        <li>Second, we plan to implement a survey based on the book 
-                            <a href="http://repository.poltekkes-kaltim.ac.id/657/1/Diagnostic%20and%20statistical%20manual%20of%20mental%20disorders%20_%20DSM-5%20%28%20PDFDrive.com%20%29.pdf">
-                                Diagnostic And Statistical Manual of Mental Disorders fifth edition</a>
-                            to provide a preliminary diagnosis to the user.</li>
-                        <li>The manual is published by the American Psychiatric Association 
-                            and serves as the principal authority for psychiatric diagnoses.</li>
-                        <li>It is also used globally by many other countries as a reference.</li>
-                    </ul>
-                <li><strong>Advice to Experts</strong></li>
-                    <ul>
-                        <li>Third, we would give advice to the user according to the result of the survey.</li>
-                        <li>Our website would provide the nearest therapists' and doctors' information if needed.</li>
-                    </ul>
-                <li><strong>Interactive Data Tool</strong></li>
-                    <ul>
-                        <li>Lastly, we plan to have an interactive data tool that shows data we collected reflecting
-                            the ongoing situation of the mental health of the users.</li>
-                    </ul>
+                <li class="strong">Search</li>
+                <ul>
+                    <li>The first interactive feature we plan to implement is the search.</li>
+                    <li>Users should be able to look up topics they are interested in to
+                        find related articles.</li>
+                </ul>
+                <li class="strong">Diagnosis Survey</li>
+                <ul>
+                    <li>Second, we plan to implement a survey based on the book
+                        <a
+                            href="http://repository.poltekkes-kaltim.ac.id/657/1/Diagnostic%20and%20statistical%20manual%20of%20mental%20disorders%20_%20DSM-5%20%28%20PDFDrive.com%20%29.pdf">
+                            <cite>Diagnostic And Statistical Manual of Mental Disorders fifth edition</cite></a>
+                        to provide a preliminary diagnosis to the user.
+                    </li>
+                    <li>The manual is published by the American Psychiatric Association
+                        and serves as the principal authority for psychiatric diagnoses.</li>
+                    <li>It is also used globally by many other countries as a reference.</li>
+                </ul>
+                <li class="strong">Advice to Experts</li>
+                <ul>
+                    <li>Third, we would give advice to the user according to the result of the survey.</li>
+                    <li>Our website would provide the nearest therapists' and doctors' information if needed.</li>
+                </ul>
+                <li class="strong">Interactive Data Tool</li>
+                <ul>
+                    <li>Lastly, we plan to have an interactive data tool that shows data we collected reflecting
+                        the ongoing situation of the mental health of the users.</li>
+                </ul>
             </ol>
         </section>
         <section id="User Story">
             <h3>User Story for the App</h3>
-            <p>As a patient who is having mental health problem, I can find 
-                mental health information that are related to me through the 
-                website, so that I can receive appropriate help and promote 
+            <p>As a patient who is having mental health problem, I can find
+                mental health information that are related to me through the
+                website, so that I can receive appropriate help and promote
                 my mental health.</p>
         </section>
     </section>
 </body>
+
 </html>
