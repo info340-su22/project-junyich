@@ -54,3 +54,16 @@ a:active {
 .strong {
     font-weight: bold;
 }
+
+.highlight_italic {
+    color: darkgreen;
+    font-style: italic;
+}
+
+.indent {
+    margin-left: 1rem;
+}
+
+#Problem_Data_Domain {
+    margin-bottom: 3rem;
+}
