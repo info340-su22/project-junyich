@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,15 +11,17 @@
       crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/draft.css">
     <title>iMental</title>
 </head>
+
 <body class="flex-container">
     <header class="flex-header pb-3">
         <div class="header-container">
             <nav>
                 <div id="menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
                 <div class="nav-links">
+                    <a href="#"><i class="fa fa-database" aria-hidden="true"> Topics</i></a>
                     <a href="#"><i class="fa fa-pie-chart" aria-hidden="true"> Survey</i></a>
                     <a href="#"><i class="fa fa-bar-chart" aria-hidden="true"> Lifestyle</i></a>
                     <a href="#"><i class="fa fa-book" aria-hidden="true"> Books</i></a>
@@ -29,30 +32,97 @@
             <h1 class="header-item3">iMental</h1>
         </div>
     </header>
+
     <main class="flex-main pb-3">
-        <h2>Recommended Books for this Week:</h2>
-        <div class="card">
+
+        <section class="search_index">
+            <h2>Topics</h2>
             <div class="row">
-                <a href="https://psychiatry.org/psychiatrists/practice/dsm">
-                    <div class="col">
-                        DSM-5 (The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition)</div>
-                        <img src="img/dsm5.png" width="140" height="150">
-                </a>
-                <a href="https://www.barnesandnoble.com/w/the-body-keeps-the-score-bessel-van-der-kolk-md/1117229987;jsessionid=DFCE9BA6372E51A9B8D77054D21DFB49.prodny_store01-atgap01?ean=9780143127741">
-                    <div class="col">The Body Keeps the Score</div>
-                    <img src="img/body_keeps_score.jpg" width="140" height="150">
-                </a>
-                <a href="https://www.barnesandnoble.com/w/unmasking-autism-devon-price/1139798113;jsessionid=DFCE9BA6372E51A9B8D77054D21DFB49.prodny_store01-atgap01?ean=9780593235232">
-                    <div class="col">Unmasking Autism: Discovering the New Faces of Neurodiversity</div>
-                    <img src="img/unmasking_autism.png" width="140" height="150">
-                </a>
+
+                    <button type="button" class="btn btn-info m-1 btn-lg">Anxiety</button>
+                    <button type="button" class="btn btn-info m-1 btn-lg">Addiction</button>
+                    <button type="button" class="btn btn-info m-1 btn-lg">Depression</button>
+
+                    <button type="button" class="btn btn-info m-1 btn-lg">PTSD</button>
+                    <button type="button" class="btn btn-info m-1 btn-lg">ADHD</button>
+                    <button type="button" class="btn btn-info m-1 btn-lg">Bipolar</button>
+
+                    <button type="button" class="btn btn-info m-1 btn-lg">Eating disorder</button>
+                    <button type="button" class="btn btn-info m-1 btn-lg">Schizophrenia</button>
+                    <button type="button" class="btn btn-info m-1 btn-lg">Psychosis</button>
             </div>
-        </div>
-        <h2>Video of the Week:</h2>
-        <div class="card">
-            Video information here
-        </div>
+        </section>
+
+        <section class="survey">
+            <h2>Survey</h2>
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <label for="person_sex" class="font-weight-bold">Sex</label>
+                        <select class="custom-select" id="person_sex">
+                            <option selected>Choose your identity here</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label for="person_age" class="font-weight-bold">Age</label>
+                        <input type="text" class="form-control" placeholder="Enter your age here" id="person_age">
+                    </div>
+                </div>
+
+                <div class="form-group mt-2 mb-1">
+                    <input class="form-check-input" type="checkbox" id="acknowledgement">
+                    <label class="form-check-label" for="acknowledgement">
+                        <p class="font-weight-bold">
+                            By checking the box, you acknowledge that iMental would use your answers to the questions to help diagnose your mental state.
+                        </p>
+                        <ul>
+                            <li>iMental would not save your answers in any form after the diagnosis is finish.</li>
+                            <li>iMental would not share your answers with any individuals in any forms.</li>
+                        </ul>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+        </section>
+
+        <section class="lifestyle">
+
+        </section>
+
+        <section class="books">
+            <h2>Recommended Books for this Week:</h2>
+            <div class="card">
+                <div class="row">
+                    <a href="https://psychiatry.org/psychiatrists/practice/dsm">
+                        <div class="col">
+                            DSM-5 (The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition)</div>
+                            <img src="img/dsm5.png" width="140" height="150">
+                    </a>
+                    <a href="https://www.barnesandnoble.com/w/the-body-keeps-the-score-bessel-van-der-kolk-md/1117229987;jsessionid=DFCE9BA6372E51A9B8D77054D21DFB49.prodny_store01-atgap01?ean=9780143127741">
+                        <div class="col">The Body Keeps the Score</div>
+                        <img src="img/body_keeps_score.jpg" width="140" height="150">
+                    </a>
+                    <a href="https://www.barnesandnoble.com/w/unmasking-autism-devon-price/1139798113;jsessionid=DFCE9BA6372E51A9B8D77054D21DFB49.prodny_store01-atgap01?ean=9780593235232">
+                        <div class="col">Unmasking Autism: Discovering the New Faces of Neurodiversity</div>
+                        <img src="img/unmasking_autism.png" width="140" height="150">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="videos">
+            <h2>Video of the Week:</h2>
+            <div class="card">
+                Video information here
+            </div>
+        </section>
     </main>
+
     <footer class="flex-footer">
         <div class="footer-container">
             <h3 class="footer-item1">Contact Us:</h3>
@@ -64,4 +134,5 @@
         </div>
     </footer>
 </body>
+
 </html>
