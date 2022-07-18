@@ -1,7 +1,126 @@
-.survey p {
-    margin-bottom: 0;
+header {
+    padding-top: 6rem;
 }
 
-.survey ul {
-    margin-bottom: 0;
+nav {
+    background-color: #fef9f8;
+    color: #252525;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    display: block;
 }
+
+nav .fa {
+    color: #252525;
+}
+
+.dropbtn {
+    background-color: #fef9f8;
+    font-size: 1.5rem;
+    border: none;
+}
+  
+.nav_dropdown {
+    position: relative;
+    display: block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fef9f8;
+    min-width: max-content;
+    padding: 0;
+}
+  
+.dropdown-content a {
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    margin: 0;
+    font-size: 1rem;
+} 
+  
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.nav_dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav img {
+    max-width: 2rem;
+    max-height: 2rem;   
+}
+
+.icon {
+    background-color: #fef9f8;
+    z-index: 1;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    margin-right: 1rem;
+    display: inline;
+}
+
+@media (min-width: 598px) {
+
+}
+
+@media (min-width: 768px) {
+    
+
+}
+
+@media (min-width: 992px) {
+    .dropbtn {
+        display: none;
+    }
+    .nav_dropdown {
+        display: inline;
+
+    }
+      
+    .dropdown-content {
+        display: inline;
+        position: fixed;
+        width: 100%;
+        padding: 0.5rem;
+    }
+      
+    .dropdown-content a {
+        display: inline;
+        padding-left: 1em;
+        padding-right: 2em;
+        padding-bottom: 0.6rem;
+        font-size: 1em;
+    }
+
+    .nav_dropdown:hover .dropdown-content {
+        display: inline;
+    }
+
+    nav img {
+        max-width: auto;
+        max-height: auto;   
+    }
+    
+    .icon {
+        z-index: 1;
+        padding: 1.1rem;
+        margin: 0;
+        display: inline;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+}
+

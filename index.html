@@ -19,16 +19,26 @@
     <header class="flex-header pb-3">
         <div class="header-container">
             <nav>
-                <div id="menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
-                <div class="nav-links">
-                    <a href="#"><i class="fa fa-database" aria-hidden="true"> Topics</i></a>
-                    <a href="#"><i class="fa fa-pie-chart" aria-hidden="true"> Survey</i></a>
-                    <a href="#"><i class="fa fa-bar-chart" aria-hidden="true"> Lifestyle</i></a>
-                    <a href="#"><i class="fa fa-book" aria-hidden="true"> Books</i></a>
-                    <a href="#"><i class="fa fa-address-card" aria-hidden="true"> About Us</i></a>
+                <div class="nav_dropdown">
+                    <div class="icon">
+                        <img class="header-item2" src="img/imentalPSed.png" alt="icon of iMental">
+                    </div>
+                    <button class="dropbtn"><i class="fa fa-bars" aria-label="menu"></i></button>
+                    <div class="dropdown-content">
+                        
+                        <a href="#"><i class="fa fa-database" aria-hidden="true"> Topics</i></a>
+                        <a href="#"><i class="fa fa-pie-chart" aria-hidden="true"> Survey</i></a>
+                        <a href="#"><i class="fa fa-bar-chart" aria-hidden="true"> Lifestyle</i></a>
+                        <a href="#"><i class="fa fa-book" aria-hidden="true"> Books</i></a>
+                        <a href="#"><i class="fa fa-address-card" aria-hidden="true"> About Us</i></a>
+
+                      
+                    </div>
+                    
                 </div>
+                
             </nav>
-            <img class="header-item2" src="img/imentalPSed.png" alt="icon of iMental">
+            
             <h1 class="header-item3">iMental</h1>
         </div>
     </header>
@@ -47,7 +57,7 @@
                     <button type="button" class="btn btn-info m-1 btn-lg">ADHD</button>
                     <button type="button" class="btn btn-info m-1 btn-lg">Bipolar</button>
 
-                    <button type="button" class="btn btn-info m-1 btn-lg">Eating disorder</button>
+                    <button type="button" class="btn btn-info m-1 btn-lg">Eating Disorder</button>
                     <button type="button" class="btn btn-info m-1 btn-lg">Schizophrenia</button>
                     <button type="button" class="btn btn-info m-1 btn-lg">Psychosis</button>
             </div>
@@ -78,7 +88,7 @@
                         <input class="form-check-input" type="checkbox" id="acknowledgement">
                         <label class="form-check-label" for="acknowledgement">
                             By checking the box, you acknowledge that iMental would use your answers to the questions to help diagnose your mental state.
-                            <ul>
+                            <ul class="mb-0">
                                 <li>iMental would not save your answers in any form after the diagnosis is finish.</li>
                                 <li>iMental would not share your answers with any individuals in any forms.</li>
                             </ul>
