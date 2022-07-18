@@ -26,7 +26,7 @@ nav .fa {
   
 .nav_dropdown {
     position: relative;
-    display: block;
+    display: inline;
 }
   
 .dropdown-content {
@@ -62,11 +62,10 @@ nav img {
 
 .icon {
     background-color: #fef9f8;
-    z-index: 1;
     padding-left: 1rem;
-    padding-bottom: 0.5rem;
     margin-right: 1rem;
     display: inline;
+    z-index: 1;
 }
 
 @media (min-width: 598px) {
@@ -107,10 +106,8 @@ nav img {
     }
     
     .icon {
-        z-index: 1;
-        padding: 1.1rem;
         margin: 0;
-        display: inline;
+        padding-bottom: 1.1rem;
     }
 
 }
