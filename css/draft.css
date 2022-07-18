@@ -105,11 +105,6 @@ nav img {
     .nav_dropdown:hover .dropdown-content {
         display: inline;
     }
-
-    nav img {
-        max-width: auto;
-        max-height: auto;   
-    }
     
     .icon {
         z-index: 1;
