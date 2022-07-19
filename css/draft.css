@@ -7,6 +7,10 @@ header {
     background-color: #FCD5CE;
 }
 
+header h1 {
+    padding-left: 2rem;
+}
+
 nav {
     background-color: #FEC89A;
     color: #252525;
@@ -126,6 +130,7 @@ form div {
 
 main {
     background-color: #fef9f8;
+    padding-left: 2rem;
 }
 
 .books .card {
@@ -138,6 +143,7 @@ main {
 
 footer {
     background-color: #FCD5CE;
+    padding-left: 2rem;
 }
 
 @media (min-width: 598px) {
