@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 header {
     padding-top: 6rem;
 }
@@ -68,13 +72,81 @@ nav img {
     z-index: 1;
 }
 
+.left {
+    display: none;
+}
+
+.right {
+    background-color: #f2e9e4;
+    width: 100%;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+}
+
+.iMental_icon {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 2rem;
+    margin-left: 5rem;
+}
+
+.container {
+    margin-top: 3rem;
+    margin-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+}
+
+.introduction {
+    margin-bottom: 5rem;
+    text-shadow: 0.5px 0.5px black;
+}
+
+.introduction h2 {
+    color: #c9ada7;
+}
+
+.introduction h3 {
+    color: #9a8c98;
+    font-size: 1.5em;
+}
+
+.form_title {
+    margin-bottom: 0.8em;
+    color: #22223b;
+    text-shadow: 0.5px 0.5px #4a4e69;
+}
+
+form div {
+    margin-bottom: 0.8em;
+}
+
 @media (min-width: 598px) {
 
 }
 
 @media (min-width: 768px) {
-    
+    .left {
+        background-color: #22223b;
+        background-image: url('../img/About_Us_BG.jpg');
+        width: 50%;
+        position: absolute;
+        left: 0px;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: floralwhite;
+        text-shadow: 1px 1px black;
+    }
 
+    .right {
+        width: 50%;
+    }
 }
 
 @media (min-width: 992px) {
