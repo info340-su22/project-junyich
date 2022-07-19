@@ -11,6 +11,10 @@ header h1 {
     padding-left: 2rem;
 }
 
+h1, h2 {
+    font-family: 'Oswald', sans-serif;
+}
+
 nav {
     background-color: #FEC89A;
     color: #252525;
@@ -81,6 +85,10 @@ nav img {
     display: none;
 }
 
+.left h1 {
+    font-family: 'Oswald', sans-serif;
+}
+
 .right {
     background-color: #f2e9e4;
     width: 100%;
@@ -144,6 +152,7 @@ main {
 footer {
     background-color: #FCD5CE;
     padding-left: 2rem;
+    font-family: 'Oswald', sans-serif;
 }
 
 @media (min-width: 598px) {
