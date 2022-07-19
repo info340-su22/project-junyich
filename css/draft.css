@@ -81,10 +81,6 @@ nav img {
     .dropbtn {
         display: none;
     }
-    .nav_dropdown {
-        display: inline;
-
-    }
       
     .dropdown-content {
         display: inline;
