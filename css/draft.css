@@ -4,10 +4,11 @@
 
 header {
     padding-top: 6rem;
+    background-color: #FCD5CE;
 }
 
 nav {
-    background-color: #fef9f8;
+    background-color: #FEC89A;
     color: #252525;
     font-size: 1.5rem;
     position: fixed;
@@ -16,6 +17,7 @@ nav {
     width: 100%;
     margin: 0;
     display: block;
+    z-index: 1;
 }
 
 nav .fa {
@@ -23,7 +25,7 @@ nav .fa {
 }
 
 .dropbtn {
-    background-color: #fef9f8;
+    background-color: #FEC89A;
     font-size: 1.5rem;
     border: none;
 }
@@ -36,7 +38,7 @@ nav .fa {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #fef9f8;
+    background-color: #FEC89A;
     min-width: max-content;
     padding: 0;
 }
@@ -65,11 +67,10 @@ nav img {
 }
 
 .icon {
-    background-color: #fef9f8;
+    background-color: #FEC89A;
     padding-left: 1rem;
     margin-right: 1rem;
     display: inline;
-    z-index: 1;
 }
 
 .left {
@@ -121,6 +122,22 @@ nav img {
 
 form div {
     margin-bottom: 0.8em;
+}
+
+main {
+    background-color: #fef9f8;
+}
+
+.books .card {
+    background-color: #fef9f8;
+}
+
+.videos .card {
+    background-color: #fef9f8;
+}
+
+footer {
+    background-color: #FCD5CE;
 }
 
 @media (min-width: 598px) {
