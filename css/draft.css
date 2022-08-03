@@ -1,9 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
 header {
     padding-top: 6rem;
+    background-color: #FCD5CE;
+}
+
+header h1 {
+    padding-left: 2rem;
+}
+
+h1, h2 {
+    font-family: 'Oswald', sans-serif;
 }
 
 nav {
-    background-color: #fef9f8;
+    background-color: #FEC89A;
     color: #252525;
     font-size: 1.5rem;
     position: fixed;
@@ -12,6 +25,7 @@ nav {
     width: 100%;
     margin: 0;
     display: block;
+    z-index: 1;
 }
 
 nav .fa {
@@ -19,20 +33,20 @@ nav .fa {
 }
 
 .dropbtn {
-    background-color: #fef9f8;
+    background-color: #FEC89A;
     font-size: 1.5rem;
     border: none;
 }
   
 .nav_dropdown {
     position: relative;
-    display: block;
+    display: inline;
 }
   
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #fef9f8;
+    background-color: #FEC89A;
     min-width: max-content;
     padding: 0;
 }
@@ -61,12 +75,84 @@ nav img {
 }
 
 .icon {
-    background-color: #fef9f8;
-    z-index: 1;
+    background-color: #FEC89A;
     padding-left: 1rem;
-    padding-bottom: 0.5rem;
     margin-right: 1rem;
     display: inline;
+}
+
+.left {
+    display: none;
+}
+
+.left h1 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.right {
+    background-color: #f2e9e4;
+    width: 100%;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+}
+
+.iMental_icon {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 2rem;
+    margin-left: 5rem;
+}
+
+.container {
+    margin-top: 3rem;
+    margin-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+}
+
+.introduction {
+    margin-bottom: 5rem;
+    text-shadow: 0.5px 0.5px black;
+}
+
+.introduction h2 {
+    color: #c9ada7;
+}
+
+.introduction h3 {
+    color: #9a8c98;
+    font-size: 1.5em;
+}
+
+.form_title {
+    margin-bottom: 0.8em;
+    color: #22223b;
+    text-shadow: 0.5px 0.5px #4a4e69;
+}
+
+form div {
+    margin-bottom: 0.8em;
+}
+
+main {
+    background-color: #fef9f8;
+    padding-left: 2rem;
+}
+
+.books .card {
+    background-color: #fef9f8;
+}
+
+.videos .card {
+    background-color: #fef9f8;
+}
+
+footer {
+    background-color: #FCD5CE;
+    padding-left: 2rem;
+    font-family: 'Oswald', sans-serif;
 }
 
 @media (min-width: 598px) {
@@ -74,17 +160,30 @@ nav img {
 }
 
 @media (min-width: 768px) {
-    
+    .left {
+        background-color: #22223b;
+        background-image: url('../img/About_Us_BG.jpg');
+        width: 50%;
+        position: absolute;
+        left: 0px;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: floralwhite;
+        text-shadow: 1px 1px black;
+    }
 
+    .right {
+        width: 50%;
+    }
 }
 
 @media (min-width: 992px) {
     .dropbtn {
         display: none;
-    }
-    .nav_dropdown {
-        display: inline;
-
     }
       
     .dropdown-content {
@@ -106,16 +205,10 @@ nav img {
         display: inline;
     }
 
-    nav img {
-        max-width: auto;
-        max-height: auto;   
-    }
     
     .icon {
-        z-index: 1;
-        padding: 1.1rem;
         margin: 0;
-        display: inline;
+        padding-bottom: 1.1rem;
     }
 
 }
