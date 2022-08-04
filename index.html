@@ -5,12 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Jangwon Yun, Jasmine Mae Alindayu, Leo Wang, Steven Chen">
+    <meta name="description" content="iMental Website">
     <link rel="stylesheet" 
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
       integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
       crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="img/imentalPSed.png">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/draft.css">
     <title>iMental</title>
 </head>
@@ -21,7 +23,9 @@
             <nav>
                 <div class="icon">
                     
-                    <img class="header-item2" src="img/imentalPSed.png" alt="icon of iMental">
+                    <a href="index.html">
+                        <img class="header-item2" src="img/imentalPSed.png" alt="icon of iMental">
+                    </a>
                     
                 </div>
 
@@ -29,12 +33,11 @@
                     
                     <button class="dropbtn"><i class="fa fa-bars" aria-label="menu"></i></button>
                     <div class="dropdown-content">
-                        
-                        <a href="#"><i class="fa fa-database" aria-hidden="true"> Topics</i></a>
-                        <a href="#"><i class="fa fa-pie-chart" aria-hidden="true"> Survey</i></a>
-                        <a href="#"><i class="fa fa-bar-chart" aria-hidden="true"> Lifestyle</i></a>
-                        <a href="#"><i class="fa fa-book" aria-hidden="true"> Books</i></a>
-                        <a href="#"><i class="fa fa-address-card" aria-hidden="true"> About Us</i></a>
+                        <a href="topics.html"><i class="fa fa-lightbulb-o" aria-hidden="true"> Topics</i></a>
+                        <a href="survey.html"><i class="fa fa-search" aria-hidden="true"> Survey</i></a>
+                        <a href="lifestyle.html"><i class="fa fa-calendar" aria-hidden="true"> Lifestyle</i></a>
+                        <a href="books.html"><i class="fa fa-book" aria-hidden="true"> Books</i></a>
+                        <a href="aboutus.html"><i class="fa fa-users" aria-hidden="true"> About Us</i></a>
                     </div>
                     
                 </div>
@@ -46,24 +49,6 @@
     </header>
 
     <main class="flex-main pb-3">
-
-        <section class="search_index">
-            <h2>Topics</h2>
-            <div class="row">
-
-                    <button type="button" class="btn btn-info m-1 btn-lg">Anxiety</button>
-                    <button type="button" class="btn btn-info m-1 btn-lg">Addiction</button>
-                    <button type="button" class="btn btn-info m-1 btn-lg">Depression</button>
-
-                    <button type="button" class="btn btn-info m-1 btn-lg">PTSD</button>
-                    <button type="button" class="btn btn-info m-1 btn-lg">ADHD</button>
-                    <button type="button" class="btn btn-info m-1 btn-lg">Bipolar</button>
-
-                    <button type="button" class="btn btn-info m-1 btn-lg">Eating Disorder</button>
-                    <button type="button" class="btn btn-info m-1 btn-lg">Schizophrenia</button>
-                    <button type="button" class="btn btn-info m-1 btn-lg">Psychosis</button>
-            </div>
-        </section>
 
         <section class="survey">
             <h2>Survey</h2>
@@ -100,31 +85,6 @@
 
                 <button type="submit" class="btn btn-primary">Continue</button>
             </form>
-        </section>
-
-        <section class="lifestyle">
-
-        </section>
-
-        <section class="books">
-            <h2>Recommended Books for this Week:</h2>
-            <div class="card">
-                <div class="row">
-                    <a href="https://psychiatry.org/psychiatrists/practice/dsm">
-                        <div class="col">
-                            DSM-5 (The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition)</div>
-                            <img src="img/dsm5.png" width="140" height="150">
-                    </a>
-                    <a href="https://www.barnesandnoble.com/w/the-body-keeps-the-score-bessel-van-der-kolk-md/1117229987;jsessionid=DFCE9BA6372E51A9B8D77054D21DFB49.prodny_store01-atgap01?ean=9780143127741">
-                        <div class="col">The Body Keeps the Score</div>
-                        <img src="img/body_keeps_score.jpg" width="140" height="150">
-                    </a>
-                    <a href="https://www.barnesandnoble.com/w/unmasking-autism-devon-price/1139798113;jsessionid=DFCE9BA6372E51A9B8D77054D21DFB49.prodny_store01-atgap01?ean=9780593235232">
-                        <div class="col">Unmasking Autism: Discovering the New Faces of Neurodiversity</div>
-                        <img src="img/unmasking_autism.png" width="140" height="150">
-                    </a>
-                </div>
-            </div>
         </section>
 
         <section class="videos">
