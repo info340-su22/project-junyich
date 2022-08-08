@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import NavBar from './Navigation';
 import AboutUs from './AboutUs';
+import Lifestyle from './lifestyle';
 
 function App() {
     
@@ -48,7 +49,7 @@ function App() {
             <div>
                 <NavBar applySelect={applySelectFeature} />
 
-                {/* lifestyle component here */}
+                <Lifestyle />
             
             </div>
         )
