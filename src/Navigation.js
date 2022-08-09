@@ -37,6 +37,9 @@ export default function NavBar(props) {
         
                     </div>
                 </nav>
+                <div>
+                    <h1>iMental</h1>
+                </div>
             </header>
         </div>
     )

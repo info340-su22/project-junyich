@@ -39,7 +39,6 @@ export default function Topics() {
 
     return (
         <div className="flex-container">
-            <header className="flex-header pb-3">
                 <div className="header-container">
                     <nav>
                         <div className="icon">
@@ -57,12 +56,8 @@ export default function Topics() {
                                 <a href="aboutus.html"><i className="fa fa-users" aria-hidden="true"> About Us</i></a>
                             </div>
                         </div>
-                        
                     </nav>
-                    
-                    <h1 className="header-item3">iMental</h1>
                 </div>
-            </header>
             <main className="flex-main pb-3">
                 <section className="search_index">
                     <h2 ref={titleRef}>Topics</h2>
