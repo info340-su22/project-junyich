@@ -1,36 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './draft.css';
 
 export default function Topics() {
-    const [isButton, setIsButton] = useState("");
+    const anxietyRef = useRef();
+    const addictionRef = useRef();
+    const depressionRef = useRef();
+    const ptsdRef = useRef();
+    const adhdRef = useRef();
+    const bipolarRef = useRef();
+    const eatingRef = useRef();
+    const schiRef = useRef();
+    const psychosisRef = useRef();
+    const titleRef = useRef();
     const handleClick = (event) => {
         event.preventDefault();
-        setIsButton(event.currentTarget.name); 
+        if (event.currentTarget.name === "Anxiety") {
+            anxietyRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Addiction") {
+            addictionRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Depression") {
+            depressionRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "PTSD") {
+            ptsdRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "ADHD") {
+            adhdRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Bipolar Disorder") {
+            bipolarRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Eating Disorders") {
+            eatingRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Schizophrenia") {
+            schiRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Psychosis") {
+            psychosisRef.current.scrollIntoView();
+        } else {
+            titleRef.current.scrollIntoView();
+        }
     }
-    
-    let linkRef = ""
-    if (isButton === "Anxiety") {
-        linkRef = "#anxiety";
-    } else if (isButton === "Addiction") {
-        linkRef = "#addiction";
-    } else if (isButton === "Depression") {
-        linkRef = "#depression";
-    } else if (isButton === "PTSD") {
-        linkRef = "#ptsd";
-    } else if (isButton === "ADHD") {
-        linkRef = "#adhd";
-    } else if (isButton === "Bipolar Disorder") {
-        linkRef = "#bipolar";
-    } else if (isButton === "Eating Disorders") {
-        linkRef = "#eating";
-    } else if (isButton === "Schizophrenia") {
-        linkRef = "#schizophrenia";
-    } else if (isButton === "Psychosis") {
-        linkRef = "#psychosis";
-    } else {
-        linkRef = "";
-    }
-    console.log(linkRef);
+
     return (
         <div className="flex-container">
             <header className="flex-header pb-3">
@@ -59,7 +65,7 @@ export default function Topics() {
             </header>
             <main className="flex-main pb-3">
                 <section className="search_index">
-                    <h2>Topics</h2>
+                    <h2 ref={titleRef}>Topics</h2>
                         <p>At iMental, we strive to spread awareness about mental illness and mental disorders.
                         There's a lot of information online and so much to learn about in terms of mental health.
                         To save you time and to reduce the amount of false information, we have provided quick
@@ -76,20 +82,19 @@ export default function Topics() {
                             <a className="btn btn-info m-1 btn-lg" href="#psychosis">Psychosis</a>
                         </div>*/ }
                         <div className="row">
-                                <SortButton name="Anxiety" onClick={handleClick} href={linkRef}/>
-                                <SortButton name="Addiction" onClick={handleClick} href={linkRef}/>
-                                <SortButton name="Depression" onClick={handleClick} href={linkRef}/>
-                                <SortButton name="PTSD" onClick={handleClick} href={linkRef}/>
-                                <SortButton name="ADHD" onClick={handleClick} href={linkRef}/>
-                                <SortButton name="Bipolar Disorder" onClick={handleClick} href={linkRef}/>
-                                <SortButton name="Eating Disorders" onClick={handleClick} href={linkRef}/>
-                                <SortButton name="Schizophrenia" onClick={handleClick} href={linkRef}/>
-                                <SortButton name="Psychosis" onClick={handleClick} href={linkRef}/>
+                                <SortButton name="Anxiety" onClick={handleClick} />
+                                <SortButton name="Addiction" onClick={handleClick} />
+                                <SortButton name="Depression" onClick={handleClick} />
+                                <SortButton name="PTSD" onClick={handleClick} />
+                                <SortButton name="ADHD" onClick={handleClick} />
+                                <SortButton name="Bipolar Disorder" onClick={handleClick} />
+                                <SortButton name="Eating Disorders" onClick={handleClick} />
+                                <SortButton name="Schizophrenia" onClick={handleClick} />
+                                <SortButton name="Psychosis" onClick={handleClick} />
                         </div>
                         
                 </section>
-
-                <div id="anxiety">
+                <div id="anxiety" ref={anxietyRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>Anxiety</h2>
@@ -116,7 +121,7 @@ export default function Topics() {
                         </div>
                     </div>
                 </div>
-                <div id="addiction">
+                <div id="addiction" ref={addictionRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>Addiction</h2>
@@ -148,7 +153,7 @@ export default function Topics() {
                         </div>
                     </div>
                 </div>
-                <div id="depression">
+                <div id="depression" ref={depressionRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>Depression</h2>
@@ -178,7 +183,7 @@ export default function Topics() {
                         </div>
                     </div>
                 </div>
-                <div id="ptsd">
+                <div id="ptsd" ref={ptsdRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>PTSD</h2>
@@ -210,7 +215,7 @@ export default function Topics() {
                         </div>
                     </div>
                 </div>
-                <div id="adhd">
+                <div id="adhd" ref={adhdRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>ADHD</h2>
@@ -249,7 +254,7 @@ export default function Topics() {
                         </div>
                     </div>
                 </div>
-                <div id="bipolar">
+                <div id="bipolar" ref={bipolarRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>Bipolar Disorder</h2>
@@ -292,7 +297,7 @@ export default function Topics() {
                         </div>
                     </div>
                 </div>
-                <div id="eating">
+                <div id="eating" ref={eatingRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>Eating Disorder</h2>
@@ -354,7 +359,7 @@ export default function Topics() {
                         </div>
                     </div>
                 </div>
-                <div id="schizophrenia">
+                <div id="schizophrenia" ref={schiRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>Schizophrenia</h2>
@@ -385,7 +390,7 @@ export default function Topics() {
                         </div>
                     </div>
                 </div>
-                <div id="psychosis">
+                <div id="psychosis" ref={psychosisRef}>
                     <div className="card">
                         <div className="card-body">
                             <h2>Psychosis</h2>
@@ -425,6 +430,6 @@ export default function Topics() {
 
 function SortButton(props) {
     return (
-        <a className="btn btn-info m-1 btn-lg" href={props.href} onClick={props.onClick}>{props.name}</a>
+        <button className="btn btn-info m-1 btn-lg" onClick={props.onClick} name={props.name}>{props.name}</button>
     );
 }

@@ -11,8 +11,6 @@ function App() {
     const applySelectFeature = (featureStr) => {
         setSelectFeature(featureStr)
     }
-    console.log(selectFeature);
-
 
     let renderContent = (
         <div>
