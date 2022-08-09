@@ -20,14 +20,7 @@ function App(props) {
         setSelectFeature(featureStr);
     }
 
-    let renderContent = (
-        <div>
-            <NavBar applySelect={applySelectFeature} />
-            <Main />
-            {/* rest of main page content */}
-            
-        </div>
-    )
+    let renderContent;
 
     if (selectFeature === "topic") {
         // only render topic component with navbar
@@ -77,12 +70,14 @@ function App(props) {
             
             </div>
         )
-    } else { // if back to main
-        <div>
-            <NavBar applySelect={applySelectFeature} />
-            <Main />
+    } else  { // if back to main
+        renderContent = (
+            <div>
+                <NavBar applySelect={applySelectFeature} />
+                <Main />
             
-        </div>
+            </div>
+        )
     }
     return renderContent;
 }
