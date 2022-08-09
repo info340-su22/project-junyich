@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './draft.css';
-import App from './App';
+import App from './components/App';
 import BookList from './data/BookList.json';
 
 // Import the functions you need from the SDKs you need

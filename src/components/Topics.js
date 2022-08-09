@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import './draft.css';
 
 export default function Topics() {
     const anxietyRef = useRef();
