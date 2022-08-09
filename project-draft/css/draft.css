@@ -117,7 +117,6 @@ nav img {
 
 .introduction {
     margin-bottom: 5rem;
-    text-shadow: 0.5px 0.5px black;
 }
 
 .introduction h2 {
@@ -132,7 +131,6 @@ nav img {
 .form_title {
     margin-bottom: 0.8em;
     color: #22223b;
-    text-shadow: 0.5px 0.5px #4a4e69;
 }
 
 form div {
@@ -169,7 +167,7 @@ footer {
 
     .left {
         background-color: #22223b;
-        background-image: url('../public/img/About_Us_BG.jpg');
+        background-image: url('../img/About_Us_BG.jpg');
         width: 50%;
         position: absolute;
         left: 0px;
@@ -180,13 +178,13 @@ footer {
         justify-content: center;
         align-items: center;
         color: floralwhite;
-        text-shadow: 1px 1px black;
     }
 
     .right {
         width: 50%;
     }
 }
+
 
 @media (min-width: 992px) {
     .dropbtn {
