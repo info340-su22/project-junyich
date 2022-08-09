@@ -71,8 +71,8 @@ function App(props) {
     } else if (selectFeature === "aboutus") {
         renderContent = (
             <div>
-                {/* <NavBar applySelect={applySelectFeature} /> */}
-                
+                <NavBar applySelect={applySelectFeature} />
+
                 <AboutUs applySelect={applySelectFeature} />
             
             </div>
