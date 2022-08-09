@@ -4,7 +4,12 @@ import NavBar from './Navigation';
 import AboutUs from './AboutUs';
 import Topics from './Topics';
 
-function App() {
+import {Books, BookWindow} from './Books';
+
+import Lifestyle from './lifestyle';
+
+
+function App(props) {
     
     const [selectFeature, setSelectFeature] = useState("main");
 
@@ -15,7 +20,7 @@ function App() {
     let renderContent = (
         <div>
             <NavBar applySelect={applySelectFeature} />
-
+            <BookWindow />
             {/* rest of main page content */}
             
         </div>
@@ -47,7 +52,7 @@ function App() {
             <div>
                 <NavBar applySelect={applySelectFeature} />
 
-                {/* lifestyle component here */}
+                <Lifestyle />
             
             </div>
         )
@@ -56,8 +61,7 @@ function App() {
         renderContent = (
             <div>
                 <NavBar applySelect={applySelectFeature} />
-
-                {/* book component here */}
+                <Books BookList={props.bookData} />
             
             </div>
         )
@@ -67,7 +71,6 @@ function App() {
                 <NavBar applySelect={applySelectFeature} />
 
                 <AboutUs />
-            
             </div>
         )
     } else { // if back to main
@@ -78,7 +81,6 @@ function App() {
             
         </div>
     }
-
     return renderContent;
 }
 

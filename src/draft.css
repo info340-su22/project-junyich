@@ -141,7 +141,7 @@ main {
     padding-left: 2rem;
 }
 
-.books .card {
+#bookWindow .card {
     background-color: #fef9f8;
 }
 
@@ -153,6 +153,49 @@ footer {
     background-color: #FCD5CE;
     padding-left: 2rem;
     font-family: 'Oswald', sans-serif;
+}
+
+#BookList .container {
+    padding-left: 2em;
+    max-width: 100%;
+    
+}
+
+#BookList {
+    background-color: #F9DCC4;
+}
+
+#BookList a {
+    text-decoration: none;
+    color: #22223b;
+}
+
+#BookList .card {
+    width: 18rem;
+
+} 
+
+#BookList h2{
+    background-color: #f08080;
+
+} 
+
+#Recommanded_Book {
+    margin: 0;
+}
+#Recommanded_Book .card {
+    width: 18rem;
+    height: fit-content;
+}
+
+#Recommanded_Book .col-3 {
+    max-width: fit-content;
+}
+
+#Recommanded_Book .container {
+    padding-left: 2em;
+    margin: 0;
+    
 }
 
 @media (min-width: 598px) {
