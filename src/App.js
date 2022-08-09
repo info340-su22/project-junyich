@@ -72,7 +72,6 @@ function App(props) {
                 <NavBar applySelect={applySelectFeature} />
 
                 <AboutUs />
-            
             </div>
         )
     } else { // if back to main
@@ -83,7 +82,6 @@ function App(props) {
             
         </div>
     }
-
     return renderContent;
 }
 
