@@ -8,6 +8,8 @@ import {Books, BookWindow} from './Books';
 
 import Lifestyle from './lifestyle';
 
+import Survey from './Survey.js';
+
 import Main from './Main'
 
 function App(props) {
@@ -15,7 +17,7 @@ function App(props) {
     const [selectFeature, setSelectFeature] = useState("main");
 
     const applySelectFeature = (featureStr) => {
-        setSelectFeature(featureStr)
+        setSelectFeature(featureStr);
     }
 
     let renderContent = (
@@ -43,7 +45,7 @@ function App(props) {
             <div>
                 <NavBar applySelect={applySelectFeature} />
 
-                {/* survey component here */}
+                <Survey />
             
             </div>
         )
@@ -69,9 +71,10 @@ function App(props) {
     } else if (selectFeature === "aboutus") {
         renderContent = (
             <div>
-                <NavBar applySelect={applySelectFeature} />
-
-                <AboutUs />
+                {/* <NavBar applySelect={applySelectFeature} /> */}
+                
+                <AboutUs applySelect={applySelectFeature} />
+            
             </div>
         )
     } else { // if back to main

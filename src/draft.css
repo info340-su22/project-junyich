@@ -101,12 +101,15 @@ nav img {
     width: 5rem;
     height: 5rem;
     margin-top: 2rem;
-    margin-left: 5rem;
+    /* margin-left: 4rem; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
     margin-top: 3rem;
-    margin-left: 5rem;
+    /* margin-left: 5rem; */
     display: flex;
     flex-direction: column;
     max-width: 80%;
@@ -203,6 +206,14 @@ footer {
 }
 
 @media (min-width: 768px) {
+    .iMental_icon {
+        margin-left: 5rem;
+    }
+
+    .container {
+        margin-left: 5rem;
+    }
+
     .left {
         background-color: #22223b;
         background-image: url('../public/img/About_Us_BG.jpg');
