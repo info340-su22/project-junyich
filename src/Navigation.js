@@ -6,7 +6,7 @@ export default function NavBar(props) {
 
     const handleClick = (event) => {
         event.preventDefault();
-        props.applySelect(event.currentTarget.name)
+        props.applySelect(event.currentTarget.name);
     }
 
     // console.log(selectFeature);

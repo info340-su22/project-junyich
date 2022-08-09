@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default function AboutUs(props) {
+
+    const handleClick = (event) => {
+        event.preventDefault();
+        props.applySelect('main');
+    }
     
     return (
         <div>
@@ -8,7 +13,7 @@ export default function AboutUs(props) {
                 <h1>Who We Are?</h1>
             </div>
             <div className="right">
-                <a href="#/"><img className="iMental_icon" src="img/imentalPSed.png" alt="icon of iMental" /></a>
+                <a href="#/" onClick={handleClick}><img className="iMental_icon" src="img/imentalPSed.png" alt="icon of iMental" /></a>
                 <div className="container">
                     <div className="introduction">
                         <h2>We are iMental team</h2>
@@ -19,12 +24,12 @@ export default function AboutUs(props) {
                     </div>
                     <form>
                         <div className="row">
-                        <div className="col">
-                            <input type="text" className="form-control shadow-sm" placeholder="First name" />
-                        </div>
-                        <div className="col">
-                            <input type="text" className="form-control shadow-sm" placeholder="Last name" />
-                        </div>
+                            <div className="col">
+                                <input type="text" className="form-control shadow-sm" placeholder="First name" />
+                            </div>
+                            <div className="col">
+                                <input type="text" className="form-control shadow-sm" placeholder="Last name" />
+                            </div>
                         </div>
 
                         <div className="form-group">

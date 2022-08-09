@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 
-import NavBar from './Navigation';
-import AboutUs from './AboutUs';
-import Lifestyle from './lifestyle';
+import NavBar from './Navigation.js';
+import AboutUs from './AboutUs.js';
+import Lifestyle from './lifestyle.js';
+import Survey from './Survey.js';
 
 function App() {
     
     const [selectFeature, setSelectFeature] = useState("main");
 
     const applySelectFeature = (featureStr) => {
-        setSelectFeature(featureStr)
+        setSelectFeature(featureStr);
     }
     console.log(selectFeature);
 
@@ -39,7 +40,7 @@ function App() {
             <div>
                 <NavBar applySelect={applySelectFeature} />
 
-                {/* survey component here */}
+                <Survey />
             
             </div>
         )
@@ -66,9 +67,9 @@ function App() {
     } else if (selectFeature === "aboutus") {
         renderContent = (
             <div>
-                <NavBar applySelect={applySelectFeature} />
+                {/* <NavBar applySelect={applySelectFeature} /> */}
 
-                <AboutUs />
+                <AboutUs applySelect={applySelectFeature} />
             
             </div>
         )
