@@ -9,8 +9,6 @@ export default function NavBar(props) {
         props.applySelect(event.currentTarget.name);
     }
 
-    // console.log(selectFeature);
-
 
     return (
         <div className="flex-container">

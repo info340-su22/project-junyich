@@ -23,17 +23,14 @@ function App(props) {
     let renderContent;
 
     if (selectFeature === "topic") {
-        // only render topic component with navbar
         renderContent = (
             <div>
                 <NavBar applySelect={applySelectFeature} />
                 <Topics />
-                {/* topic component here */}
             
             </div>
         )
     } else if (selectFeature === "survey") {
-        // do shit
         renderContent = (
             <div>
                 <NavBar applySelect={applySelectFeature} />
@@ -43,7 +40,6 @@ function App(props) {
             </div>
         )
     } else if (selectFeature === "lifestyle") {
-        // do shit
         renderContent = (
             <div>
                 <NavBar applySelect={applySelectFeature} />
@@ -53,7 +49,6 @@ function App(props) {
             </div>
         )
     } else if (selectFeature === "book") {
-        // do shit
         renderContent = (
             <div>
                 <NavBar applySelect={applySelectFeature} />
@@ -70,7 +65,7 @@ function App(props) {
             
             </div>
         )
-    } else  { // if back to main
+    } else  { //back to main
         renderContent = (
             <div>
                 <NavBar applySelect={applySelectFeature} />
