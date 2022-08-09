@@ -39,25 +39,6 @@ export default function Topics() {
 
     return (
         <div className="flex-container">
-                <div className="header-container">
-                    <nav>
-                        <div className="icon">
-                            <a href="index.html">
-                                <img className="header-item2" src="img/imentalPSed.png" alt="icon of iMental" />
-                            </a>
-                        </div>
-                        <div className="nav_dropdown">
-                            <button className="dropbtn"><i className="fa fa-bars" aria-label="menu"></i></button>
-                            <div className="dropdown-content">
-                                <a href="topics.html"><i className="fa fa-lightbulb-o" aria-hidden="true"> Topics</i></a>
-                                <a href="survey.html"><i className="fa fa-search" aria-hidden="true"> Survey</i></a>
-                                <a href="lifestyle.html"><i className="fa fa-calendar" aria-hidden="true"> Lifestyle</i></a>
-                                <a href="books.html"><i className="fa fa-book" aria-hidden="true"> Books</i></a>
-                                <a href="aboutus.html"><i className="fa fa-users" aria-hidden="true"> About Us</i></a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
             <main className="flex-main pb-3">
                 <section className="search_index">
                     <h2 ref={titleRef}>Topics</h2>
