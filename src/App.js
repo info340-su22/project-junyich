@@ -8,6 +8,7 @@ import {Books, BookWindow} from './Books';
 
 import Lifestyle from './lifestyle';
 
+import Main from './Main'
 
 function App(props) {
     
@@ -20,7 +21,7 @@ function App(props) {
     let renderContent = (
         <div>
             <NavBar applySelect={applySelectFeature} />
-            <BookWindow />
+            <Main />
             {/* rest of main page content */}
             
         </div>
@@ -76,8 +77,7 @@ function App(props) {
     } else { // if back to main
         <div>
             <NavBar applySelect={applySelectFeature} />
-
-            {/* rest of main page content */}
+            <Main />
             
         </div>
     }
