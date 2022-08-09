@@ -5,7 +5,7 @@ function BookCard(props) {
 
     const authorAndYearStr = bookData.author + " " + bookData.year;
     return (
-        <div className='col-3'>
+        <div className='col-sm-12 col-md-6 col-xl-4'>
             <div className='card m-3' key={bookData.title}>
                 <a href={bookData.src}>
                     <img className='card-img-top align-middle' src={bookData.img} alt={bookData.title} />
