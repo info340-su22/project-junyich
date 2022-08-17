@@ -1,4 +1,6 @@
 import React from 'react';
+import { Calendar, momentLocalizer} from 'react-big-calendar';
+import moment from 'moment';
 
 export default function Lifestyle(props) {
     return (
