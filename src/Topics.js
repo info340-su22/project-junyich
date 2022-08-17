@@ -1,36 +1,52 @@
-import React, { useState } from 'react';
-import './draft.css';
+import React, { useState, useRef } from 'react';
+import graphData from "../data/TopicData.json";
+import Plot from "react-plotly.js";
 
 export default function Topics() {
-    const [isButton, setIsButton] = useState("");
+    const topicData = graphData;
+    const anxietyRef = useRef();
+    const addictionRef = useRef();
+    const depressionRef = useRef();
+    const ptsdRef = useRef();
+    const adhdRef = useRef();
+    const bipolarRef = useRef();
+    const eatingRef = useRef();
+    const schiRef = useRef();
+    const psychosisRef = useRef();
+    const [data, setData] = useState({types:['Overall'], percent:[21]});
+    console.log(data);
     const handleClick = (event) => {
         event.preventDefault();
-        setIsButton(event.currentTarget.name); 
+        if (event.currentTarget.name === "Anxiety") {
+            anxietyRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Addiction") {
+            addictionRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Depression") {
+            depressionRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "PTSD") {
+            ptsdRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "ADHD") {
+            adhdRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Bipolar Disorder") {
+            bipolarRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Eating Disorders") {
+            eatingRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Schizophrenia") {
+            schiRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Psychosis") {
+            psychosisRef.current.scrollIntoView();
+        }
     }
-    
-    let linkRef = ""
-    if (isButton === "Anxiety") {
-        linkRef = "#anxiety";
-    } else if (isButton === "Addiction") {
-        linkRef = "#addiction";
-    } else if (isButton === "Depression") {
-        linkRef = "#depression";
-    } else if (isButton === "PTSD") {
-        linkRef = "#ptsd";
-    } else if (isButton === "ADHD") {
-        linkRef = "#adhd";
-    } else if (isButton === "Bipolar Disorder") {
-        linkRef = "#bipolar";
-    } else if (isButton === "Eating Disorders") {
-        linkRef = "#eating";
-    } else if (isButton === "Schizophrenia") {
-        linkRef = "#schizophrenia";
-    } else if (isButton === "Psychosis") {
-        linkRef = "#psychosis";
-    } else {
-        linkRef = "";
+
+    const handleGraph = (event) => {
+        topicData.forEach(each=>{
+            if(each.id === event.currentTarget.id){
+                setData({types: each.Types, percent: each.Percent})
+            }
+        })
     }
-    console.log(linkRef);
+
+
     return (
         <div className="flex-container">
             <header className="flex-header pb-3">
@@ -51,9 +67,9 @@ export default function Topics() {
                                 <a href="aboutus.html"><i className="fa fa-users" aria-hidden="true"> About Us</i></a>
                             </div>
                         </div>
-                        
+
                     </nav>
-                    
+
                     <h1 className="header-item3">iMental</h1>
                 </div>
             </header>
@@ -64,17 +80,46 @@ export default function Topics() {
                         There's a lot of information online and so much to learn about in terms of mental health.
                         To save you time and to reduce the amount of false information, we have provided quick
                         summaries of common disorders with additional resources. The topics are not an exhaustive list. </p>
-                        {/*<div className="row">
-                            <a className="btn btn-info m-1 btn-lg" href="#anxiety">Anxiety</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#addiction">Addiction</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#depression">Depression</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#ptsd">PTSD</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#adhd">ADHD</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#bipolar">Bipolar Disorder</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#eating">Eating Disorders</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#schizophrenia">Schizophrenia</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#psychosis">Psychosis</a>
-                        </div>*/ }
+                        <div>
+                            <div className="card">
+                                <div className="card-body">
+                                <div>
+                                    <p>This graph observes the total percentage of U.S adults who are suffering from any mental illness. The data was retrieved from <a href="https://www.nimh.nih.gov/health/statistics/mental-illness">National Institute of Mental Health</a>.</p>
+                                    <em>Click to filter the graph:</em>
+                                    <button className="btn btn m-1 btn-primary" id='A' onClick={handleGraph}>Overall</button>
+                                    <button className="btn btn m-1 btn-primary" id='B' onClick={handleGraph}>Sex</button>
+                                    <button className="btn btn m-1 btn-primary" id='C' onClick={handleGraph}>Age</button>
+                                    <button className="btn btn m-1 btn-primary" id='D' onClick={handleGraph}>Race</button>
+                                </div>
+                                <div>
+                                    <Plot
+                                        data={[
+                                            {
+                                                type: 'bar',
+                                                x: data.types,
+                                                y: data.percent,
+                                                text: data.percent.map(String),
+                                                marker: {
+                                                    color: 'rgba(58,200,225,.5)',
+                                                    line: {
+                                                    color: 'rgb(8,48,107)',
+                                                    width: 1.5
+                                                    }
+                                                }
+                                            }
+                                        ]}
+                                        layout = {{
+                                            title: "Percentage of U.S. Adults Suffering Mental Illness",
+                                            xaxis: {automargin: true, tickangle: 20},
+                                            yaxis: {automargin: true},
+                                            paper_bgcolor: 'rgba(245,246,249,1)',
+                                            plot_bgcolor: 'rgba(245,246,249,1)'
+                                        }}
+                                    />
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="row">
                                 <SortButton name="Anxiety" onClick={handleClick} href={linkRef}/>
                                 <SortButton name="Addiction" onClick={handleClick} href={linkRef}/>
@@ -86,7 +131,7 @@ export default function Topics() {
                                 <SortButton name="Schizophrenia" onClick={handleClick} href={linkRef}/>
                                 <SortButton name="Psychosis" onClick={handleClick} href={linkRef}/>
                         </div>
-                        
+
                 </section>
 
                 <div id="anxiety">
@@ -107,7 +152,7 @@ export default function Topics() {
                                 symptoms of anxiety are: excessive worry, fear, lack of concentration, racing thoughts,
                                 unwanted thoughts, fatigue or sweating, trembling, palpitations, etc. Anxiety disorders are very common,
                                 and there are many treatments available.</p>
-                            
+
                             <h3>For More Information:</h3>
                             <ul>
                                 <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK519704/table/ch3.t15/">DSM-5 Information on Anxiety</a></li>
@@ -144,7 +189,7 @@ export default function Topics() {
                                 <li><a href="https://www.addictionpolicy.org/post/dsm-5-facts-and-figures">DSM-5 Summary of Addiction</a></li>
                                 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5328289/">Definition of Addiction: DSM-5 vs. ICD-11</a></li>
                             </ul>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -156,7 +201,7 @@ export default function Topics() {
                                 had suffered from a depressive episode. Among the other disorders, depression is the most common
                                 mental disorder in the United States. For some individuals, this disorder may look differently from
                                 others that suffer from it. Some may exhibit many of the symptoms and others may only exhibit
-                                just a couple. 
+                                just a couple.
                                 The symptoms are listed as follows:</p>
                             <ul>
                                 <li>Depressed mood most of the day, nearly every day.</li>
@@ -168,8 +213,8 @@ export default function Topics() {
                                 <li>Diminished ability to think or concentrate, or indecisiveness, nearly every day.</li>
                                 <li>Recurrent thoughts of death, recurrent suicidal ideation without a specific plan, or a suicide attempt or a specific plan for committing suicide.</li>
                             </ul>
-                            <p>According to DSM-5, individual is defined as having Depression when they experience five or more symptoms during the same 2-week period and should be either (1) depressed mood or (2) loss of interest or pleasure.</p> 
-                            
+                            <p>According to DSM-5, individual is defined as having Depression when they experience five or more symptoms during the same 2-week period and should be either (1) depressed mood or (2) loss of interest or pleasure.</p>
+
                             <h3>For More Information:</h3>
                             <ul>
                                 <li><a href="https://www.psycom.net/depression/major-depressive-disorder/dsm-5-depression-criteria">Depression Definition and DSM-5 Diagnostic Criteria</a></li>
@@ -285,7 +330,7 @@ export default function Topics() {
                                     </ul>
                                 </ul>
                             </ul>
-                            
+
                             <h3>For More Information:</h3>
                             <li><a href="https://psychiatry.org/patients-families/bipolar-disorders/what-are-bipolar-disorders">What Are Bipolar Disorders?</a></li>
                             <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK519712/table/ch3.t8/">DSM-IV to DSM-5 Bipolar I Disorder Comparison</a></li>
@@ -378,7 +423,7 @@ export default function Topics() {
                                     </ul>
                                 </li>
                             </ul>
-                            
+
                             <h3>For More Information:</h3>
                             <li><a href="https://psychiatry.org/patients-families/schizophrenia/what-is-schizophrenia">What Is Schizophrenia?</a></li>
                             <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK519704/table/ch3.t22/">DSM-IV to DSM-5 Schizophrenia Comparison</a></li>
