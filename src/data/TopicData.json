@@ -1,0 +1,6 @@
+[
+    {"id":"A", "Category":"Overall", "Types":["Overall"], "Percent":[21]},
+    {"id":"B", "Category":"Sex", "Types":["Female", "Male"], "Percent":[25.8, 15.8]},
+    {"id":"C", "Category":"Age", "Types":["18-25", "26-49", "50+"], "Percent":[30.6, 25.3, 14.5]},
+    {"id":"D", "Category":"Race", "Types":["Hispanic or Latino", "White", "Black or African American", "Asian", "2 or More"], "Percent":[18.4, 22.6, 17.3, 13.9, 35.8]}
+]

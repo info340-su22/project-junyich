@@ -1,6 +1,11 @@
 import React, { useState, useRef } from 'react';
+import graphData from "../data/TopicData.json";
+import Plot from "react-plotly.js";
+
 
 export default function Topics() {
+    const topicData = graphData;
+    const graphRef = useRef();
     const anxietyRef = useRef();
     const addictionRef = useRef();
     const depressionRef = useRef();
@@ -10,7 +15,7 @@ export default function Topics() {
     const eatingRef = useRef();
     const schiRef = useRef();
     const psychosisRef = useRef();
-    const titleRef = useRef();
+    const [data, setData] = useState({types:['Overall'], percent:[21]});
     const handleClick = (event) => {
         event.preventDefault();
         if (event.currentTarget.name === "Anxiety") {
@@ -31,44 +36,85 @@ export default function Topics() {
             schiRef.current.scrollIntoView();
         } else if (event.currentTarget.name === "Psychosis") {
             psychosisRef.current.scrollIntoView();
-        } else {
-            titleRef.current.scrollIntoView();
+        } else if (event.currentTarget.name === "Graph") {
+            graphRef.current.scrollIntoView();
         }
+    }
+
+    const handleGraph = (event) => {
+        topicData.forEach(each=>{
+            if(each.id === event.currentTarget.id){
+                setData({types: each.Types, percent: each.Percent})
+            }
+        })
     }
 
     return (
         <div className="flex-container">
             <main className="flex-main pb-3">
                 <section className="search_index">
-                    <h2 ref={titleRef}>Topics</h2>
-                        <p>At iMental, we strive to spread awareness about mental illness and mental disorders.
-                        There's a lot of information online and so much to learn about in terms of mental health.
-                        To save you time and to reduce the amount of false information, we have provided quick
-                        summaries of common disorders with additional resources. The topics are not an exhaustive list. </p>
-                        {/*<div className="row">
-                            <a className="btn btn-info m-1 btn-lg" href="#anxiety">Anxiety</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#addiction">Addiction</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#depression">Depression</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#ptsd">PTSD</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#adhd">ADHD</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#bipolar">Bipolar Disorder</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#eating">Eating Disorders</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#schizophrenia">Schizophrenia</a>
-                            <a className="btn btn-info m-1 btn-lg" href="#psychosis">Psychosis</a>
-                        </div>*/ }
-                        <div className="row">
-                                <SortButton name="Anxiety" onClick={handleClick} />
-                                <SortButton name="Addiction" onClick={handleClick} />
-                                <SortButton name="Depression" onClick={handleClick} />
-                                <SortButton name="PTSD" onClick={handleClick} />
-                                <SortButton name="ADHD" onClick={handleClick} />
-                                <SortButton name="Bipolar Disorder" onClick={handleClick} />
-                                <SortButton name="Eating Disorders" onClick={handleClick} />
-                                <SortButton name="Schizophrenia" onClick={handleClick} />
-                                <SortButton name="Psychosis" onClick={handleClick} />
-                        </div>
-                        
+                    <h2>Topics</h2>
+                    <p>At iMental, we strive to spread awareness about mental illness and mental disorders.
+                    There's a lot of information online and so much to learn about in terms of mental health.
+                    To save you time and to reduce the amount of false information, we have provided quick
+                    summaries of common disorders with additional resources. The topics are not an exhaustive list.</p>
+                    <div className="row">
+                        <SortButton name="Graph" onClick={handleClick} />
+                        <SortButton name="Anxiety" onClick={handleClick} />
+                        <SortButton name="Addiction" onClick={handleClick} />
+                        <SortButton name="Depression" onClick={handleClick} />
+                        <SortButton name="PTSD" onClick={handleClick} />
+                        <SortButton name="ADHD" onClick={handleClick} />
+                        <SortButton name="Bipolar Disorder" onClick={handleClick} />
+                        <SortButton name="Eating Disorders" onClick={handleClick} />
+                        <SortButton name="Schizophrenia" onClick={handleClick} />
+                        <SortButton name="Psychosis" onClick={handleClick} />
+                    </div> 
                 </section>
+                <div ref={graphRef}>
+                    <div className="card">
+                        <div className="card-body">
+                            <div>
+                                <h2>Mental Illness Percentage Graph</h2>
+                                <p>This graph observes the total percentage of U.S adults who are suffering from any mental illness. The data was retrieved from <a href="https://www.nimh.nih.gov/health/statistics/mental-illness">National Institute of Mental Health</a>.</p>
+                                <em>Click to filter the graph:</em>
+                                <button className="btn btn m-1 btn-primary" id='A' onClick={handleGraph}>Overall</button>
+                                <button className="btn btn m-1 btn-primary" id='B' onClick={handleGraph}>Sex</button>
+                                <button className="btn btn m-1 btn-primary" id='C' onClick={handleGraph}>Age</button>
+                                <button className="btn btn m-1 btn-primary" id='D' onClick={handleGraph}>Race</button>
+                            </div>
+                            <div>
+                                <Plot
+                                    data={[
+                                        {
+                                            type: 'bar',
+                                            x: data.types,
+                                            y: data.percent,
+                                            text: data.percent.map(String),
+                                            marker: {
+                                                color: 'rgba(58,200,225,.5)',
+                                                line: {
+                                                color: 'rgb(8,48,107)',
+                                                width: 1.5
+                                                }
+                                            }
+                                        }
+                                    ]}
+                                    layout = {{
+                                        title: "Percentage of U.S. Adults Suffering Mental Illness",
+                                        xaxis: {automargin: true},
+                                        yaxis: {automargin: true, range: [0, 40],
+                                        title: "Percentage(%)"},
+                                        paper_bgcolor: 'rgba(245,246,249,1)',
+                                        plot_bgcolor: 'rgba(245,246,249,1)',
+                                        height: 600,
+                                        width: 600
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div id="anxiety" ref={anxietyRef}>
                     <div className="card">
                         <div className="card-body">
