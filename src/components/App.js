@@ -12,69 +12,26 @@ import Survey from './Survey.js';
 
 import Main from './Main'
 
+import {Route, Routes, Navigate, Link} from 'react-router-dom';
+
+
 function App(props) {
     
-    const [selectFeature, setSelectFeature] = useState("main");
-
-    const applySelectFeature = (featureStr) => {
-        setSelectFeature(featureStr);
-    }
-
-    let renderContent;
-
-    if (selectFeature === "topic") {
-        renderContent = (
-            <div>
-                <NavBar applySelect={applySelectFeature} />
-                <Topics />
-            
-            </div>
-        )
-    } else if (selectFeature === "survey") {
-        renderContent = (
-            <div>
-                <NavBar applySelect={applySelectFeature} />
-
-                <Survey />
-            
-            </div>
-        )
-    } else if (selectFeature === "lifestyle") {
-        renderContent = (
-            <div>
-                <NavBar applySelect={applySelectFeature} />
-
-                <Lifestyle />
-            
-            </div>
-        )
-    } else if (selectFeature === "book") {
-        renderContent = (
-            <div>
-                <NavBar applySelect={applySelectFeature} />
-                <Books BookList={props.bookData} />
-            
-            </div>
-        )
-    } else if (selectFeature === "aboutus") {
-        renderContent = (
-            <div>
-                <NavBar applySelect={applySelectFeature} />
-
-                <AboutUs applySelect={applySelectFeature} />
-            
-            </div>
-        )
-    } else  { //back to main
-        renderContent = (
-            <div>
-                <NavBar applySelect={applySelectFeature} />
-                <Main />
-            
-            </div>
-        )
-    }
-    return renderContent;
+    
+    return (
+        <div>
+            <NavBar />
+            <Routes>
+                <Route path='main' element={<Main />}/>
+                <Route path='topics' element={<Topics />}/>
+                <Route path='survey' element={<Survey />}/>
+                <Route path='lifestyle' element={<Lifestyle />}/>
+                <Route path='books' element={<Books BookList={props.bookData} />}/>
+                <Route path='about' element={<AboutUs />}/>
+                <Route path='*' element={<Navigate to={"main"}/>} />
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

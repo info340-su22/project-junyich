@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './draft.css';
 import App from './components/App';
 import BookList from './data/BookList.json';
+import {BrowserRouter} from 'react-router-dom';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -24,9 +25,9 @@ const app = initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <App bookData={BookList} />
-  </React.StrictMode>
+  </BrowserRouter>
 );
 
 

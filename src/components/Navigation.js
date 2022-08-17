@@ -1,13 +1,9 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 export default function NavBar(props) {
 
-
-
-    const handleClick = (event) => {
-        event.preventDefault();
-        props.applySelect(event.currentTarget.name);
-    }
 
 
     return (
@@ -16,9 +12,9 @@ export default function NavBar(props) {
                 <nav>
                     <div className="icon">
                         
-                        <a href='#/' onClick={handleClick} name="main">
+                        <Link to={"/main"}>
                             <img className="header-item2" src="img/imentalPSed.png" alt="icon of iMental" />
-                        </a>
+                        </Link>
 
                     </div>
 
@@ -26,11 +22,13 @@ export default function NavBar(props) {
                         
                         <button className="dropbtn"><i className="fa fa-bars" aria-label="menu"></i></button>
                         <div className="dropdown-content">
-                            <a href="#/" onClick={handleClick} name="topic"><i className="fa fa-lightbulb-o"> Topics</i></a>
-                            <a href="#/" onClick={handleClick} name="survey"><i className="fa fa-search"> Survey</i></a>
-                            <a href="#/" onClick={handleClick} name="lifestyle"><i className="fa fa-calendar"> Lifestyle</i></a>
-                            <a href="#/" onClick={handleClick} name="book"><i className="fa fa-book"> Books</i></a>
-                            <a href="#/" onClick={handleClick} name="aboutus"><i className="fa fa-users"> About Us</i></a>
+                          
+                            <Link to={"/topics"}><i className="fa fa-lightbulb-o"> Topics</i></Link>
+                            <Link to={"/survey"}><i className="fa fa-search"> Survey</i></Link>
+                            <Link to={"/lifestyle"}><i className="fa fa-calendar"> Lifestyle</i></Link>
+                            <Link to={"/books"}><i className="fa fa-book"> Books</i></Link>
+                            <Link to={"/about"}><i className="fa fa-users"> About Us</i></Link>
+                        
                         </div>
         
                     </div>
