@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './draft.css';
 import App from './components/App';
 import BookList from './data/BookList.json';
+import Book100 from './data/100Books.json';
 import {BrowserRouter} from 'react-router-dom';
 
 // Import the functions you need from the SDKs you need
@@ -26,7 +27,7 @@ const app = initializeApp(firebaseConfig);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App bookData={BookList} />
+    <App bookData={Book100} />
   </BrowserRouter>
 );
 

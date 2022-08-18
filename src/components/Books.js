@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function BookCard(props) {
     const bookData = props.aBook;
@@ -7,8 +7,8 @@ function BookCard(props) {
     return (
         <div className='col-sm-12 col-md-6 col-xl-4'>
             <div className='card m-3' key={bookData.title}>
-                <a href={bookData.src}>
-                    <img className='card-img-top align-middle' src={bookData.img} alt={bookData.title} />
+                <a href={bookData.link}>
+                    <img className='card-img-top align-middle' src={bookData.imageLink} alt={bookData.title} />
                     <div className="card-body">
                         <h3 className="card-title font-italic">{bookData.title}</h3>
                         <p className="card-text">{authorAndYearStr}</p>
@@ -20,10 +20,28 @@ function BookCard(props) {
 }
 
 export function Books(props) {
+    const [userInput, setUserInput] = useState('');
 
-    const bookCardArray = props.BookList.map((theBook) => {
+    const applyFilter = (userInputStr) => {
+        setUserInput(userInputStr);
+    } 
+
+    let displayedBooks = [...props.BookList];
+    
+    if (userInput != '') {
+        let filtered = displayedBooks.filter((aBookObj) => {
+            let titleLower = aBookObj.title.toLowerCase();
+            let userInLower = userInput.toLowerCase();
+            return titleLower.includes(userInLower);
+        })
+        displayedBooks = [...filtered];
+    } else {
+        displayedBooks = [...props.BookList];
+    }
+
+    const bookCardArray = displayedBooks.map((theBook) => {
         const card = (
-            <BookCard aBook={theBook} key={theBook.title} />
+            <BookCard aBook={theBook} key={theBook.title + theBook.author} />
         )
         return card;
     })
@@ -34,6 +52,7 @@ export function Books(props) {
         
         <section id='BookList'>
             <h2 className='mb-5 text-center p-3'>Books Gallery</h2>
+            <BookSearchForm filterFunction={applyFilter} />
             <div className='container'>
                 <div className='card-deck align-self-center'>
                     {bookCardArray}
@@ -71,5 +90,32 @@ export function BookWindow(props) {
                 </div>
             </div>
         </section>
+    )
+}
+
+function BookSearchForm(props) {
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.filterFunction(event.target.search.value);
+
+    }
+
+    return(
+        <div id="booksearch">
+            <form onSubmit={handleSubmit}>
+                <div className='form-row ml-3  align-items-center'>
+                
+                    <div className='col'>
+                        <label htmlFor="search" className="font-weight-light font-italic">Search for a Book among our library</label>
+                        <input type="text" className="form-control" placeholder="Enter the title or author name" id="search"/>
+                        
+                    </div>
+                    <div className='col'>
+                        <input type="submit" value = "Submit" className='btn-info' />
+                    </div>
+                </div>
+            </form>
+        </div>
     )
 }
