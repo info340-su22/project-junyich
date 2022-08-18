@@ -1,19 +1,27 @@
-import React, { useState }from 'react';
+import React, {useEffect, useRef, useState }from 'react';
 import _ from 'lodash'
+
+function createQustions() {
+    
+}
 
 export default function Survey(props) {
     //https://www.psychiatry.org/psychiatrists/practice/dsm/educational-resources/assessment-measures#section_0
 
+    //Range slider
+    const bottomRef = useRef();
+
     const [range, setRange] = useState({});
     const [displayText, setText] = useState({'range1': 'None', 'range2': 'None', 'range3': 'None', 'range4': 'None', 'range5': 'None', 'range6': 'None', 'range7': 'None'});
     let rangeText = {1: 'Never', 2:'Rarely', 3:'Sometimes', 4:'Often', 5:'Always'};
-
+ 
     const handleRange = (event) => {
         let id = event.target.id;
         setRange({...range, [id]: event.target.value});
         setText({...displayText, [id]: rangeText[event.target.value]});
     }
 
+    //Show results after submit
     let result;
     const [resultText, setResult] = useState(result);
 
@@ -21,7 +29,7 @@ export default function Survey(props) {
         event.preventDefault();
         if (_.isEmpty(range)) {
             result = (
-                <div className='mt-3 alert alert-warning'>
+                <div className='mt-3 alert alert-warning text-center'>
                     <p>Please answer each question by draging the slider!</p>
                 </div>
             );
@@ -30,48 +38,45 @@ export default function Survey(props) {
         }
 
         let counts = Object.values(range).reduce((a, b) => ~~a + ~~b);
-        console.log(counts);
         
         if (_.size(range) < 7) {
             result = (
-                <div className='mt-3 alert alert-warning'>
-                    <p>Invalid Test, please make sure you have answered all the questions!</p>
-                </div>
+                <p>Invalid Test, please make sure you have answered all the questions!</p>
             );
         } else if (counts >= 7 && counts < 16) {
             result = (
-                <div className='mt-3 alert alert-success'>
-                    <p>You might have a <span className='font-weight-bold'>None to Slight</span> level of Anxiety</p>
-                </div>
+                <p>You might have a <span className='font-weight-bold'>None to Slight</span> level of Anxiety</p>
             );
         } else if (counts >= 16 && counts <20) {
             result = (
-                <div className='mt-3 alert alert-success'>
-                    <p>You might have a <span className='font-weight-bold'>Mild</span> level of Anxiety</p>
-                </div>
+                <p>You might have a <span className='font-weight-bold'>Mild</span> level of Anxiety</p>
             );
         } else if (counts >= 20 && counts <28) {
             result = (
-                <div className='mt-3 alert alert-success'>
-                    <p>You might have a <span className='font-weight-bold'>Moderate</span> level of Anxiety</p>
-                </div>
+                <p>You might have a <span className='font-weight-bold'>Moderate</span> level of Anxiety</p>
             );
         } else if (counts >= 28) {
             result = (
-                <div className='mt-3 alert alert-success'>
-                    <p>You might have a <span className='font-weight-bold'>Severe</span> level of Anxiety</p>
-                </div>
+                <p>You might have a <span className='font-weight-bold'>Severe</span> level of Anxiety</p>
             );
         } else {
-            result = '';
+            setResult('');
+            return;
         }
 
-        setResult(result);
+        setResult((
+            <div className='mt-3 alert alert-success text-center' ref={bottomRef}>
+                {result}
+            </div>
+        ));
+
+        bottomRef.current.scrollIntoView();
     }
 
-    function sortTable(n) {
+    function sortTable() {
     }
 
+    //Render
     return (
         <main className="flex-main pb-3">
             <section className="survey">
