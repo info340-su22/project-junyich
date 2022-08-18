@@ -33,7 +33,7 @@ export default function Survey(props) {
         let counts = 0;
         let countArray = Object.values(count);
         countArray.forEach((value) => {
-            if (value == true) counts++;
+            if (value === true) counts++;
         });
         
         if (counts >= 3) {
