@@ -1,18 +1,26 @@
 import React, { useState, useRef } from 'react';
-import graphData from "../data/TopicData.json";
 import Plot from "react-plotly.js";
 
 export default function Main(props) {
-    const topicData = graphData;
+    const [graphData, setGraphData] = useState([]);
+    fetch("/TopicData.json")
+    .then((response) => {
+        return response.json();
+    }).then((data) => {
+        setGraphData(data);
+    }).catch((error) => {
+        console.log(error);
+    })
+
+    const dataForGraph = graphData;
     const [data, setData] = useState({types:['Overall'], percent:[21]});
     const handleGraph = (event) => {
-        topicData.forEach(each=>{
+        dataForGraph.forEach(each=>{
             if(each.id === event.currentTarget.id){
                 setData({types: each.Types, percent: each.Percent})
             }
         })
     }
-
     return (
         <div className='flex-main pb-3 ml-3'>
             <section id="What_is_the_Problem">

@@ -1,7 +1,4 @@
 import React, { useState, useRef } from 'react';
-import graphData from "../data/TopicData.json";
-import Plot from "react-plotly.js";
-
 
 export default function Topics() {
     const anxietyRef = useRef();
