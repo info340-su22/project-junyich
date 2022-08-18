@@ -5,26 +5,29 @@ export default function Survey(props) {
 
     //Need to work on commented out area next time! I found a better self-assessment resources!
 
-    // const [range, setRange] = useState({});
-    // const [displayText, setText] = useState({'range1': 'None', 'range2': 'None', 'range3': 'None', 'range4': 'None', 'range5': 'None'});
+    const [range, setRange] = useState({});
+    const [displayText, setText] = useState({'range1': 'None', 'range2': 'None', 'range3': 'None', 'range4': 'None', 'range5': 'None'});
 
     const handleCheck = (event) => {
         let id = event.target.id;
         setCount({...count, [id]: event.target.checked});
     }
 
-    // let rangeText = {1: 'Never', 2:'Rarely', 3:'Sometimes', 4:'Often', 5:'Always'};
-    // //let displayText = {'range1': 'None', 'range2': 'None', 'range3': 'None', 'range4': 'None', 'range5': 'None'};
-    // let range1Text = displayText.range1;
+    let rangeText = {1: 'Never', 2:'Rarely', 3:'Sometimes', 4:'Often', 5:'Always'};
+    //let displayText = {'range1': 'None', 'range2': 'None', 'range3': 'None', 'range4': 'None', 'range5': 'None'};
+    let range1Text = displayText.range1;
 
-    // const handleRange = (event) => {
-    //     let id = event.target.id;
-    //     setRange({...range, [id]: event.target.value});
-    //     setText({...displayText, [id]: rangeText[event.target.value]});
+    const handleRange = (event) => {
+        let id = event.target.id;
+        setRange({...range, [id]: event.target.value});
+        setText({...displayText, [id]: rangeText[event.target.value]});
         
-    //     //displayText[id] = rangeText[event.target.value];
+        //displayText[id] = rangeText[event.target.value];
 
-    // }
+        console.log(range);
+        console.log(displayText);
+
+    }
     let result;
     const [resultText, setResult] = useState(result);
 
@@ -33,7 +36,7 @@ export default function Survey(props) {
         let counts = 0;
         let countArray = Object.values(count);
         countArray.forEach((value) => {
-            if (value == true) counts++;
+            if (value === true) counts++;
         });
         
         if (counts >= 3) {
@@ -49,8 +52,8 @@ export default function Survey(props) {
 
         setResult(result);
 
-        console.log(counts);
-        console.log(result);
+        // console.log(counts);
+        // console.log(result);
     }
 
     return (
@@ -70,8 +73,8 @@ export default function Survey(props) {
                             <input type="text" className="form-control" placeholder="Last name" id="lname" />
                         </div>
                     </div>
-                    <select className="custom-select">
-                        <option selected>How old are you?</option>
+                    <select className="custom-select" defaultValue={'DEFAULT'}>
+                        <option value="DEFAULT" disabled>How old are you?</option>
                         <option value="1">Under 18</option>
                         <option value="2">18 - 24 yrs</option>
                         <option value="3">25 - 34 yrs</option>
@@ -85,19 +88,19 @@ export default function Survey(props) {
                         <div className="card-body">
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" id="check1" onChange={handleCheck}/>
-                                <label className="form-check-label" for="check1">
+                                <label className="form-check-label" htmlFor="check1">
                                     Excessive anxiety and worry (apprehensive expectation), occurring more days than not for at least 6 months, about a number of events or activities (such as work or school performance).
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" id="check2" onChange={handleCheck}/>
-                                <label className="form-check-label" for="check2">
+                                <label className="form-check-label" htmlFor="check2">
                                     The individual finds it difficult to control the worry.
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" id="check3" onChange={handleCheck}/>
-                                <label className="form-check-label" for="check3">
+                                <label className="form-check-label" htmlFor="check3">
                                     The anxiety and worry are associated with three (or more) of the following six symptoms (with at least some symptoms having been present for more days than not for the past 6 months):
                                 </label>
                                 <ol>
@@ -111,20 +114,20 @@ export default function Survey(props) {
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" id="check4" onChange={handleCheck}/>
-                                <label className="form-check-label" for="check4">
+                                <label className="form-check-label" htmlFor="check4">
                                     The anxiety, worry, or physical symptoms cause clinically significant distress or impairment in social, occupational, or other important areas of functioning.
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" id="check5" onChange={handleCheck}/>
-                                <label className="form-check-label" for="check5">
+                                <label className="form-check-label" htmlFor="check5">
                                     The disturbance is not better explained by another mental disorder
                                 </label>
                             </div>
-                            {/* <div class="form-group">
-                                <label for="range1" className='font-weight-bold'>I felt fearful: <span className='pr-3'>{range1Text}</span></label>
-                                <input type="range" class="form-control-range" id="range1" min={1} max={5} onChange={handleRange}/>
-                            </div> */}
+                            <div className="form-group">
+                                <label htmlFor="range1" className='font-weight-bold'>I felt fearful: <span className='pr-3'>{range1Text}</span></label>
+                                <input type="range" className="form-control-range" id="range1" min={1} max={5} onChange={handleRange}/>
+                            </div>
                         </div>
                     </div>
                     <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
