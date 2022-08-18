@@ -17,7 +17,7 @@
       "max": 5,
       "noneScore": 17,
       "mildScore": 23,
-      "oderateScore": 33,
+      "moderateScore": 33,
       "severeScore": 40
     },
     {
@@ -37,7 +37,7 @@
         "max": 5,
         "noneScore": 16,
         "mildScore": 20,
-        "oderateScore": 28,
+        "moderateScore": 28,
         "severeScore": 35
       },
       {
@@ -55,7 +55,7 @@
         "max": 5,
         "noneScore": 14,
         "mildScore": 16,
-        "oderateScore": 21,
+        "moderateScore": 21,
         "severeScore": 25
       }
 ]
