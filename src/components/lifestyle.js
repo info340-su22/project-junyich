@@ -32,7 +32,7 @@ export default function Lifestyle(props) {
                         <p>Each episode contains a particular topic filled with questions. The host,
                             Jeremy Godwin, provides quality advice from research to overcome difficult mental
                             health challenges. </p>
-                        <iframe style={{float: 'left'}} title="spotifyFrame" src="https://open.spotify.com/embed/show/2kH3ec1ljTia7VmwYsm8Xt?utm_source=generator" width="100%" height="152" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        <iframe title="spotifyFrame" src="https://open.spotify.com/embed/show/2kH3ec1ljTia7VmwYsm8Xt?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>
                     <div className="card">
                         <div className="card-body">
@@ -43,7 +43,7 @@ export default function Lifestyle(props) {
                             has to do with relationships and emotions. For those that struggle to understand their emotions
                             and the role of relationships in their life, this podcast is great for some insight.
                             </p>
-                            <iframe style={{float: 'left'}} title="spotifyFrame" src="https://open.spotify.com/embed/show/4P86ZzHf7EOlRG7do9LkKZ?utm_source=generator" width="100%" height="152" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                            <iframe title="spotifyFrame" src="https://open.spotify.com/embed/show/4P86ZzHf7EOlRG7do9LkKZ?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         </div>
                     </div>
                     <div className="card">
@@ -53,7 +53,7 @@ export default function Lifestyle(props) {
                             Many of us question happiness and wonder what things can make us truly happy. Well, there's a science for it! Dr. Laurie
                             Santos delves into happiness and provides advice on what can make us feel better in our lives. 
                             </p>
-                            <iframe style={{float: 'left'}} title="spotifyFrame" src="https://open.spotify.com/embed/show/3i5TCKhc6GY42pOWkpWveG?utm_source=generator" width="100%" height="152" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                            <iframe title="spotifyFrame" src="https://open.spotify.com/embed/show/3i5TCKhc6GY42pOWkpWveG?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         </div>
                     </div>
                 </div>
