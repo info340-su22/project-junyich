@@ -205,10 +205,6 @@ footer {
     
 }
 
-@media (min-width: 598px) {
-
-}
-
 @media (min-width: 768px) {
     .iMental_icon {
         margin-left: 5rem;
@@ -268,10 +264,6 @@ footer {
         margin: 0;
         padding-bottom: 1.1rem;
     }
-
-}
-
-@media (min-width: 1200px) {
 
 }
 
