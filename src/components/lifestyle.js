@@ -1,20 +1,33 @@
-import React from 'react';
-import { Calendar, momentLocalizer} from 'react-big-calendar';
-import moment from 'moment';
+import React, {useState} from 'react';
 
 export default function Lifestyle(props) {
     return (
         <div>
-            <main className="flex-main pb-3">
-            <h2>Recommended Podcasts:</h2>
-            <p>How does one navigate through life? With all the information given about mental health, it is
-                natural to learn through mediums other than surveys and reading. Here at iMental, we value
-                podcasts as they are great sources of information with hosts that provide high quality research
-                on mental health topics. Additionally, in our busy life, podcasts makes it easier for us to gain
-                information, as we can go on a run, do errands or do other things while simultaneously learning.
-            </p>
+            <div className="flex-container">
+                <main className="flex-main pb-3">
                 <div className="card">
                     <div className="card-body">
+                        <h2>Downloadable Content</h2>
+                            <p>Journaling and writing down your personal thoughts is a great way to get to know yourself better, and
+                                what state you currently are in. For people who are starting to journal for the first time, it may feel
+                                a bit uncomfortable. Where do I start? What should I write down? How do I collect my thoughts and
+                                represent them well on paper?
+                                
+                                At iMental, we want to provide resources to get you started on journaling! Below are template options
+                                for what kind of journaling you need, layout and for particular moods! </p>
+                                <a href="https://docdro.id/nn6htqY" download> Weekly Reflection </a>
+                                <a href="https://docdro.id/EBafJp9" download> Habit Tracker </a>
+                    </div>
+                </div>
+                <div className="card">
+                    <div className="card-body">
+                    <h2>Recommended Podcasts:</h2>
+                    <p>How does one navigate through life? With all the information given about mental health, it is
+                        natural to learn through mediums other than surveys and reading. Here at iMental, we value
+                        podcasts as they are great sources of information with hosts that provide high quality research
+                        on mental health topics. Additionally, in our busy life, podcasts makes it easier for us to gain
+                        information, as we can go on a run, do errands or do other things while simultaneously learning.
+                    </p>
                         <h3>1. Let's Talk About Mental Health</h3>
                         <p>Each episode contains a particular topic filled with questions. The host,
                             Jeremy Godwin, provides quality advice from research to overcome difficult mental
@@ -44,7 +57,8 @@ export default function Lifestyle(props) {
                         </div>
                     </div>
                 </div>
-            </main>
+                </main>
+            </div>
         </div>
     )
 }
