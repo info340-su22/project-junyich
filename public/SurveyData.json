@@ -1,0 +1,61 @@
+[
+    {
+      "disorder": "Depression",
+      "daysBefore": 7,
+      "numberQs": "8",
+      "questions": [
+        "I felt worthless",
+        "I felt that I had nothing to look forward to",
+        "I felt helpless",
+        "I felt sad",
+        "I felt like a failure",
+        "I felt depressed",
+        "I felt unhappy",
+        "I felt hopeless"
+      ],
+      "min": 1,
+      "max": 5,
+      "noneScore": 17,
+      "mildScore": 23,
+      "moderateScore": 33,
+      "severeScore": 40
+    },
+    {
+        "disorder": "Anxiety",
+        "daysBefore": 7,
+        "numberQs": "7",
+        "questions": [
+          "I felt fearful",
+          "I felt anxious",
+          "I felt worried",
+          "I found it hard to focus on anything other than my anxiety",
+          "I felt nervous",
+          "I felt uneasy",
+          "I felt tense"
+        ],
+        "min": 1,
+        "max": 5,
+        "noneScore": 16,
+        "mildScore": 20,
+        "moderateScore": 28,
+        "severeScore": 35
+      },
+      {
+        "disorder": "Anger",
+        "daysBefore": 7,
+        "numberQs": "5",
+        "questions": [
+          "I was irritated more than people knew",
+          "I felt angry",
+          "I felt like I was ready to explode",
+          "I was grouchy",
+          "I felt annoyed"
+        ],
+        "min": 1,
+        "max": 5,
+        "noneScore": 14,
+        "mildScore": 16,
+        "moderateScore": 21,
+        "severeScore": 25
+      }
+]
