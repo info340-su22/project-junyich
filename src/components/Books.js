@@ -27,7 +27,7 @@ export function Books(props) {
     } 
 
     let displayedBooks = [...props.BookList];
-    
+    let notFoundBook;
     if (userInput !== '') {
         let filtered = displayedBooks.filter((aBookObj) => {
             let titleLower = aBookObj.title.toLowerCase();
@@ -35,6 +35,13 @@ export function Books(props) {
             return titleLower.includes(userInLower);
         })
         displayedBooks = [...filtered];
+        if (displayedBooks.length > 0) {
+            notFoundBook = null;
+        } else {
+            notFoundBook = (
+                <p className='font-weight-bold text-danger'> Sorry, can't find the book!</p>
+            )
+        }
     } else {
         displayedBooks = [...props.BookList];
     }
@@ -49,10 +56,11 @@ export function Books(props) {
     return (
         
         <section id='BookList'>
-            <h2 className='mb-5 text-center p-3'>Books Gallery</h2>
+            <h2 className='mb-5 text-center p-3'>Book Gallery</h2>
             <BookSearchForm filterFunction={applyFilter} />
             <div className='container ml-0'>
                 <div className='card-deck align-self-center'>
+                    {notFoundBook}
                     {bookCardArray}
                 </div>
             </div>
@@ -75,7 +83,7 @@ function BookSearchForm(props) {
                 
                     <div className='col'>
                         <label htmlFor="search" className="font-weight-light font-italic">Search for a Book among our library</label>
-                        <input type="text" className="form-control" placeholder="Enter the title or author name" id="search"/>
+                        <input type="text" className="form-control" placeholder="Enter the title here." id="search"/>
                         
                     </div>
                     <div className='col'>
