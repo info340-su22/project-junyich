@@ -29,25 +29,23 @@ export default function Lifestyle(props) {
                             <Plot
                                 data={[
                                     {
-                                        type: 'bar',
-                                        x: initialData.types,
-                                        y: initialData.percent,
+                                        type: 'pie',
+                                        labels: initialData.types,
+                                        values: initialData.percent,
                                         text: initialData.percent.map(String),
                                         marker: {
                                             color: 'rgba(,0,225,.5)',
                                             mode: 'lines+markers',
-                                        }
+                                        },
+                                        sort: false
                                     }
                                 ]}
                                 layout = {{
                                     title: "Percentage of Mental Health Treatments",
-                                    xaxis: {automargin: true},
-                                    yaxis: {automargin: true, range: [0, 40],
-                                    title: "Percentage(%)"},
                                     paper_bgcolor: 'rgba(245,246,249,1)',
                                     plot_bgcolor: 'rgba(245,246,249,1)',
                                     height: 450,
-                                    width: 425
+                                    width: 450
                                 }}
                             />
                         </div>

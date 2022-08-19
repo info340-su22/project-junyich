@@ -1,19 +1,23 @@
 import React, { useState, useRef } from 'react';
 import Plot from "react-plotly.js";
+import { Alert } from 'react-bootstrap';
 
 export default function Main(props) {
     const [graphData, setGraphData] = useState([]);
+    const [alertMessage, setAlertMessage] = useState(null);
+    const [data, setData] = useState({types:['Overall'], percent:[21]});
+    
     fetch("/TopicData.json")
     .then((response) => {
         return response.json();
     }).then((data) => {
         setGraphData(data);
-    }).catch((error) => {
-        console.log(error);
+    })
+    .catch((error) => {
+        setAlertMessage("Failed to filter. Showing only overall percentage");
     })
 
     const dataForGraph = graphData;
-    const [data, setData] = useState({types:['Overall'], percent:[21]});
     const handleGraph = (event) => {
         dataForGraph.forEach(each=>{
             if(each.id === event.currentTarget.id){
@@ -42,6 +46,9 @@ export default function Main(props) {
                             <h2>Mental Illness Percentage Graph</h2>
                             <p>This graph observes the total percentage of U.S adults who are suffering from any mental illness. The data was retrieved from <a href="https://www.nimh.nih.gov/health/statistics/mental-illness">National Institute of Mental Health</a>.</p>
                             <em>Click to filter the graph:</em>
+                            {alertMessage &&
+                                <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
+                            }
                             <button className="btn btn m-1 btn-primary" id='A' onClick={handleGraph}>Overall</button>
                             <button className="btn btn m-1 btn-primary" id='B' onClick={handleGraph}>Sex</button>
                             <button className="btn btn m-1 btn-primary" id='C' onClick={handleGraph}>Age</button>
