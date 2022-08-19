@@ -80,10 +80,10 @@ export default function Main(props) {
                                     yaxis: {automargin: true, range: [0, 40],
                                     title: "Percentage(%)"},
                                     paper_bgcolor: 'rgba(245,246,249,1)',
-                                    plot_bgcolor: 'rgba(245,246,249,1)',
-                                    height: 600,
-                                    width: 600
+                                    plot_bgcolor: 'rgba(245,246,249,1)'
                                 }}
+                                style={{width: '100%', height: '100%'}}
+                                useResizeHandler={true}
                             />
                         </div>
                     </div>

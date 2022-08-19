@@ -48,10 +48,10 @@ export default function Lifestyle(props) {
                                     layout = {{
                                         title: "Percentage of Mental Health Treatments",
                                         paper_bgcolor: 'rgba(245,246,249,1)',
-                                        plot_bgcolor: 'rgba(245,246,249,1)',
-                                        height: 450,
-                                        width: 450,
+                                        plot_bgcolor: 'rgba(245,246,249,1)'
                                     }}
+                                    style={{width: '100%', height: '100%'}}
+                                    useResizeHandler={true}
                                 />
                             </div>
                         </div>
