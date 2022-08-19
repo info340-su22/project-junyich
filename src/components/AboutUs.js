@@ -15,29 +15,8 @@ export default function AboutUs(props) {
                         <h2>We are iMental team</h2>
                         <h3>We are here to support your mental wellbeings</h3>
                     </div>
-                    <div className="form_title">
-                        <h2>Get in Touch</h2>
-                    </div>
-                    <form>
-                        <div className="row">
-                            <div className="col">
-                                <input type="text" className="form-control shadow-sm" placeholder="First name" />
-                            </div>
-                            <div className="col">
-                                <input type="text" className="form-control shadow-sm" placeholder="Last name" />
-                            </div>
-                        </div>
-
-                        <div className="form-group">
-                            <input type="text" className="form-control shadow-sm" id="inputAddress" placeholder="Email Address" />
-                        </div>
-
-                        <div className="form-group">
-                            <textarea className="form-control shadow-sm" id="message" name="message" rows="6" placeholder="Messages"></textarea>
-                        </div>
-
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                    </form>
+                    <h2>Mission</h2>
+                    <p>Some bullshit here</p>
                 </div>
             </div>
         </div>
