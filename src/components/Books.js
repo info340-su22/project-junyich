@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function BookCard(props) {
+    useEffect(() => {
+        document.title = "Books Page";  
+      }, []);
     const bookData = props.aBook;
 
     const authorAndYearStr = bookData.author + " " + bookData.year;
     return (
-        <div className='col-sm-12 col-md-6 col-xl-4'>
+        <div className='col-sm-12 col-md-6 col-xl-4' id="BookCard">
             <div className='card m-3' key={bookData.title}>
                 <a href={bookData.link}>
                     <img className='card-img-top align-middle' src={bookData.imageLink} alt={bookData.title} />
@@ -19,7 +22,7 @@ function BookCard(props) {
     )
 }
 
-export function Books(props) {
+export default function Books(props) {
     const [userInput, setUserInput] = useState('');
 
     const applyFilter = (userInputStr) => {
@@ -27,14 +30,21 @@ export function Books(props) {
     } 
 
     let displayedBooks = [...props.BookList];
-    
-    if (userInput != '') {
+    let notFoundBook;
+    if (userInput !== '') {
         let filtered = displayedBooks.filter((aBookObj) => {
             let titleLower = aBookObj.title.toLowerCase();
             let userInLower = userInput.toLowerCase();
             return titleLower.includes(userInLower);
         })
         displayedBooks = [...filtered];
+        if (displayedBooks.length > 0) {
+            notFoundBook = null;
+        } else {
+            notFoundBook = (
+                <p className='font-weight-bold text-danger'> Sorry, can't find the book!</p>
+            )
+        }
     } else {
         displayedBooks = [...props.BookList];
     }
@@ -46,47 +56,15 @@ export function Books(props) {
         return card;
     })
 
-    console.log(bookCardArray);
-
     return (
         
         <section id='BookList'>
-            <h2 className='mb-5 text-center p-3'>Books Gallery</h2>
+            <h2 className='mb-5 text-center p-3'>Book Gallery</h2>
             <BookSearchForm filterFunction={applyFilter} />
-            <div className='container'>
+            <div className='container ml-0'>
                 <div className='card-deck align-self-center'>
+                    {notFoundBook}
                     {bookCardArray}
-                </div>
-            </div>
-        </section>
-    )
-}
-
-export function BookWindow(props) {
-
-    return (
-        <section id="bookWindow">
-            <h2>Recommended Books for this Week:</h2>
-            <div className="card">
-                <div className="row">
-                    <div className="col-4">
-                        <a href="https://psychiatry.org/psychiatrists/practice/dsm">
-                            <p>DSM-5 (The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition)</p>
-                            <img src="img/dsm5_resized.png" width="140" height="150" alt="book of DSM-5" />
-                        </a>
-                    </div>
-                    <div className="col-4">
-                        <a href="https://www.barnesandnoble.com/w/the-body-keeps-the-score-bessel-van-der-kolk-md/1117229987;jsessionid=DFCE9BA6372E51A9B8D77054D21DFB49.prodny_store01-atgap01?ean=9780143127741">
-                            <p>The Body Keeps the Score</p>
-                            <img src="img/body_keeps_score_resized.jpg" width="140" height="150" alt="book of The Body Keeps the Score" />
-                        </a>
-                    </div>
-                    <div className="col-4">
-                        <a href="https://www.barnesandnoble.com/w/unmasking-autism-devon-price/1139798113;jsessionid=DFCE9BA6372E51A9B8D77054D21DFB49.prodny_store01-atgap01?ean=9780593235232">
-                            <p>Unmasking Autism: Discovering the New Faces of Neurodiversity</p>
-                            <img src="img/unmasking_autism_resized.png" width="140" height="150" alt="book of Unmasking Autism: Discovering the New Faces of Neruodiversity" />
-                        </a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -108,7 +86,7 @@ function BookSearchForm(props) {
                 
                     <div className='col'>
                         <label htmlFor="search" className="font-weight-light font-italic">Search for a Book among our library</label>
-                        <input type="text" className="form-control" placeholder="Enter the title or author name" id="search"/>
+                        <input type="text" className="form-control" placeholder="Enter the title here." id="search"/>
                         
                     </div>
                     <div className='col'>

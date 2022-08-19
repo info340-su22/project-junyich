@@ -1,19 +1,26 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Plot from "react-plotly.js";
+import { Alert } from 'react-bootstrap';
 
 export default function Main(props) {
+    useEffect(() => {
+        document.title = "Main Page";  
+      }, []);
     const [graphData, setGraphData] = useState([]);
+    const [alertMessage, setAlertMessage] = useState(null);
+    const [data, setData] = useState({types:['Overall'], percent:[21]});
+    
     fetch("/TopicData.json")
     .then((response) => {
         return response.json();
     }).then((data) => {
         setGraphData(data);
-    }).catch((error) => {
-        console.log(error);
+    })
+    .catch((error) => {
+        setAlertMessage("Failed to filter. Showing only overall percentage");
     })
 
     const dataForGraph = graphData;
-    const [data, setData] = useState({types:['Overall'], percent:[21]});
     const handleGraph = (event) => {
         dataForGraph.forEach(each=>{
             if(each.id === event.currentTarget.id){
@@ -29,7 +36,7 @@ export default function Main(props) {
             </section>
             <section id="Why_the_Problem_Needs_Addressing">
                 <h2>Why the Problem Needs Addressing</h2>
-                <p>The issue that we want to address is the potential harm of unverified information about mental health on social media and on the Internet. There are an abundance of apps that allow users to take surveys to learn whether they may have a particular condition or not. However, most of these surveys are notcredible – they do not rely on certified sources, but merely on information from the Internet. Websites like <a href="https://psychcentral.com/" target="_blank"> PsychCentral</a>, <a href="https://www.psychologytoday.com/us" target="_blank"> Psychology Today</a>, and <a href="https://www.talkspace.com/" target="_blank"> Talk Space</a> have surveys for users to take, but the questions are typically too obvious (and are leading at times) and are not backed by any source.</p>
+                <p>The issue that we want to address is the potential harm of unverified information about mental health on social media and on the Internet. There are an abundance of apps that allow users to take surveys to learn whether they may have a particular condition or not. However, most of these surveys are notcredible – they do not rely on certified sources, but merely on information from the Internet. Websites like <a href="https://psychcentral.com/" target="_blank" rel="noreferrer"> PsychCentral</a>, <a href="https://www.psychologytoday.com/us" target="_blank" rel="noreferrer"> Psychology Today</a>, and <a href="https://www.talkspace.com/" target="_blank" rel="noreferrer"> Talk Space</a> have surveys for users to take, but the questions are typically too obvious (and are leading at times) and are not backed by any source.</p>
             </section>
             <section id="Our_Goal">
                 <h2>Our Goal</h2>
@@ -42,6 +49,9 @@ export default function Main(props) {
                             <h2>Mental Illness Percentage Graph</h2>
                             <p>This graph observes the total percentage of U.S adults who are suffering from any mental illness. The data was retrieved from <a href="https://www.nimh.nih.gov/health/statistics/mental-illness">National Institute of Mental Health</a>.</p>
                             <em>Click to filter the graph:</em>
+                            {alertMessage &&
+                                <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
+                            }
                             <button className="btn btn m-1 btn-primary" id='A' onClick={handleGraph}>Overall</button>
                             <button className="btn btn m-1 btn-primary" id='B' onClick={handleGraph}>Sex</button>
                             <button className="btn btn m-1 btn-primary" id='C' onClick={handleGraph}>Age</button>

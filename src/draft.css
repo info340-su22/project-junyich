@@ -233,6 +233,10 @@ footer {
     .right {
         width: 50%;
     }
+
+    #BookCard {
+        resize: both;
+    }
 }
 
 @media (min-width: 992px) {
@@ -270,3 +274,12 @@ footer {
 iframe {
     float: left;
 }
+
+.flex-container {
+    background-color: #F9DCC4;
+}
+
+.container {
+    background-color: #F9DCC4;
+}
+

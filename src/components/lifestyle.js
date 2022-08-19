@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import mentalData from '../data/MentalHealthTreatment.json';
 import Plot from 'react-plotly.js';
 
 export default function Lifestyle(props) {
+    useEffect(() => {
+        document.title = "Lifestyle Page";  
+      }, []);
     const [initialData, setData] = useState({types:['Age'], percent:[9.5, 11.6, 9.1, 5.7]});
 
     const handleBarGraph = (event) => {
@@ -12,6 +15,7 @@ export default function Lifestyle(props) {
             }
         })
     }
+
     return (
         <div>
             <div className="flex-container">
@@ -26,30 +30,30 @@ export default function Lifestyle(props) {
                                 <button className="btn btn m-1 btn-primary" id='C' onClick={handleBarGraph}>Race</button>
                                 <button className="btn btn m-1 btn-primary" id='D' onClick={handleBarGraph}>Urbanization Level</button>
                             </div>
-                            <Plot
-                                data={[
-                                    {
-                                        type: 'bar',
-                                        x: initialData.types,
-                                        y: initialData.percent,
-                                        text: initialData.percent.map(String),
-                                        marker: {
-                                            color: 'rgba(,0,225,.5)',
-                                            mode: 'lines+markers',
+                            <div className="plot">
+                                <Plot
+                                    data={[
+                                        {
+                                            type: 'pie',
+                                            labels: initialData.types,
+                                            values: initialData.percent,
+                                            text: initialData.percent.map(String),
+                                            marker: {
+                                                color: 'rgba(,0,225,.5)',
+                                                mode: 'lines+markers',
+                                            },
+                                            sort: false
                                         }
-                                    }
-                                ]}
-                                layout = {{
-                                    title: "Percentage of Mental Health Treatments",
-                                    xaxis: {automargin: true},
-                                    yaxis: {automargin: true, range: [0, 40],
-                                    title: "Percentage(%)"},
-                                    paper_bgcolor: 'rgba(245,246,249,1)',
-                                    plot_bgcolor: 'rgba(245,246,249,1)',
-                                    height: 450,
-                                    width: 425
-                                }}
-                            />
+                                    ]}
+                                    layout = {{
+                                        title: "Percentage of Mental Health Treatments",
+                                        paper_bgcolor: 'rgba(245,246,249,1)',
+                                        plot_bgcolor: 'rgba(245,246,249,1)',
+                                        height: 450,
+                                        width: 450,
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="card">

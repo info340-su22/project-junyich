@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 export default function AboutUs(props) {
-
+    useEffect(() => {
+        document.title = "About Us Page";  
+      }, []);
     
     return (
         <div>
@@ -12,32 +14,15 @@ export default function AboutUs(props) {
                 <Link to={"/main"}><img className="iMental_icon" src="img/imentalPSed.png" alt="icon of iMental" /></Link>
                 <div className="container">
                     <div className="introduction">
-                        <h2>We are iMental team</h2>
-                        <h3>We are here to support your mental wellbeings</h3>
+                        <h2>We are the iMental team!</h2>
+                        <p>We are here to support your mental wellbeings.</p>
+                        <h2>Mission</h2>
+                        <p>At iMental, we understand the trouble of accessing mental health resources and
+                            information. With so many websites and so much to click on, it is difficult at times
+                            to find the right resource. On our website, we have compiled information from credible
+                            sources, including the DSM-5, to be concise and readily accessible.
+                        </p>
                     </div>
-                    <div className="form_title">
-                        <h2>Get in Touch</h2>
-                    </div>
-                    <form>
-                        <div className="row">
-                            <div className="col">
-                                <input type="text" className="form-control shadow-sm" placeholder="First name" />
-                            </div>
-                            <div className="col">
-                                <input type="text" className="form-control shadow-sm" placeholder="Last name" />
-                            </div>
-                        </div>
-
-                        <div className="form-group">
-                            <input type="text" className="form-control shadow-sm" id="inputAddress" placeholder="Email Address" />
-                        </div>
-
-                        <div className="form-group">
-                            <textarea className="form-control shadow-sm" id="message" name="message" rows="6" placeholder="Messages"></textarea>
-                        </div>
-
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                    </form>
                 </div>
             </div>
         </div>

@@ -93,6 +93,10 @@ function CreateTest(props) {
 
 
 export default function Survey(props) {
+    useEffect(() => {
+        document.title = "Survey Page";  
+    }, []);
+
     //Parse data
     const [surveyData, setSurveyData] = useState([]);
     fetch("/SurveyData.json")
