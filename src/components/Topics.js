@@ -1,6 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 export default function Topics() {
+    useEffect(() => {
+        document.title = "Topics Page";  
+      }, []);
+      
     const anxietyRef = useRef();
     const addictionRef = useRef();
     const depressionRef = useRef();
@@ -10,7 +14,6 @@ export default function Topics() {
     const eatingRef = useRef();
     const schiRef = useRef();
     const psychosisRef = useRef();
-    const [data, setData] = useState({types:['Overall'], percent:[21]});
     const handleClick = (event) => {
         event.preventDefault();
         if (event.currentTarget.name === "Anxiety") {

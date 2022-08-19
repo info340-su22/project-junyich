@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 import NavBar from './Navigation';
 import AboutUs from './AboutUs';
 import Topics from './Topics';
 
-import {Books, BookWindow} from './Books';
+import Books from './Books';
 
 import Lifestyle from './lifestyle';
 
@@ -12,11 +12,13 @@ import Survey from './Survey.js';
 
 import Main from './Main'
 
-import {Route, Routes, Navigate, Link} from 'react-router-dom';
+import {Route, Routes, Navigate} from 'react-router-dom';
 
 
 function App(props) {
-    
+    useEffect(() => {
+        document.title = "Main";  
+      }, []);
     
     return (
         <div>

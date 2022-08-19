@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function BookCard(props) {
+    useEffect(() => {
+        document.title = "Books Page";  
+      }, []);
     const bookData = props.aBook;
 
     const authorAndYearStr = bookData.author + " " + bookData.year;
@@ -19,7 +22,7 @@ function BookCard(props) {
     )
 }
 
-export function Books(props) {
+export default function Books(props) {
     const [userInput, setUserInput] = useState('');
 
     const applyFilter = (userInputStr) => {

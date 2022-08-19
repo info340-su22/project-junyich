@@ -2,6 +2,10 @@ import React, {useEffect, useRef, useState }from 'react';
 import _ from 'lodash'
 
 function CreateTable(props) {
+    useEffect(() => {
+        document.title = "Survey Page";  
+      }, []);
+
     const tableArray = props.surveyData.map((element, index) => {
         const table = (
             <tr>
