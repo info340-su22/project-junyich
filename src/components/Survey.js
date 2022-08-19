@@ -1,6 +1,7 @@
-import React, {useEffect, useRef, useState }from 'react';
+import React, { useEffect, useRef, useState }from "react";
+import { Alert } from 'react-bootstrap';
 import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } from 'firebase/database';
-import _ from 'lodash'
+import _ from "lodash"
 
 //Source: https://www.psychiatry.org/psychiatrists/practice/dsm/educational-resources/assessment-measures#section_0
 
@@ -96,9 +97,9 @@ export default function Survey(props) {
     useEffect(() => {
         document.title = "Survey Page";  
     }, []);
-
     //Parse data
     const [surveyData, setSurveyData] = useState([]);
+    const [alertMessage, setAlertMessage] = useState(null);
     fetch("/SurveyData.json")
     .then((response) => {
         return response.json();
@@ -107,7 +108,7 @@ export default function Survey(props) {
             setSurveyData(data);
         }
     }).catch((error) => {
-        console.log(error);
+        setAlertMessage("Failed to receive data from server.");
     })
     
     //Firebase database
@@ -244,6 +245,9 @@ export default function Survey(props) {
             <section className="survey">
                 <h2>Quick Mental Health Survey</h2>
                 <p className="text-justify">In life, things happen. Helping yourself is actually not that hard! It only takes 3 minutes to complete one survey. Knowing yourself is the first step to recovery!</p>
+                {alertMessage &&
+                    <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
+                }
                 <CreateTable surveyData={surveyData} handleTest={handleTest} popularity={popularity}/>
                 {survey == null &&
                     <h3 className='text-center alert alert-dark'>Please <span className='text-info'>click</span> table above to start desired test!</h3>

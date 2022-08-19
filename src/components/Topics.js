@@ -4,7 +4,6 @@ export default function Topics() {
     useEffect(() => {
         document.title = "Topics Page";  
       }, []);
-      
     const anxietyRef = useRef();
     const addictionRef = useRef();
     const depressionRef = useRef();
