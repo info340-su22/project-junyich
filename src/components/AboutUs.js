@@ -22,6 +22,10 @@ export default function AboutUs(props) {
                             to find the right resource. On our website, we have compiled information from credible
                             sources, including the DSM-5, to be concise and readily accessible.
                         </p>
+                        <p>We extend our support to individuals suffering from mental health issues, and we
+                            prioritize those needs. We hope that with our resources, we can better assist those
+                            that do not receive adequate help.
+                        </p>
                     </div>
                 </div>
             </div>

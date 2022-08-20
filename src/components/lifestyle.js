@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import mentalData from '../data/MentalHealthTreatment.json';
 import Plot from 'react-plotly.js';
+import { Alert } from 'react-bootstrap';
 
 export default function Lifestyle(props) {
     useEffect(() => {
         document.title = "Lifestyle Page";  
       }, []);
+    const [alertMessage, setAlertMessage] = useState(null);
     const [initialData, setData] = useState({types:['Age'], percent:[9.5, 11.6, 9.1, 5.7]});
 
     const handleBarGraph = (event) => {
@@ -22,9 +24,20 @@ export default function Lifestyle(props) {
                 <main className="flex-main pb-3">
                     <div className="card">
                         <div className="card-body">
-                            <h2>Graph</h2>
-                            <p>Yes hello</p>
+                            <h2>The Journey to Taking Care of Yourself</h2>
+                            <p>Once we've learned about our issues, the next step to growth is developing healthy and
+                                productive habits. Although this page is not an exhaustive list of the many ways to take care
+                                of yourself, iMental has provided some resources that you can apply in your life!
+                            </p>
+                            <p>Below is a graph that illustrates the percentages of individuals that have received counseling/therapy in the United States of 2020.
+                                Taken from the <a href="https://www.cdc.gov/nchs/products/databriefs/db419.htm#:~:text=In%202020%2C%2020.3%25%20of%20U.S.,from%20a%20mental%20health%20professional.">
+                                CDC</a>, you can click on the buttons to view different demographic statistics. By calling attention to these numbers and demographics, iMental
+                                extends support to individuals that want to try therapy and counseling. Remember, you are not alone!
+                            </p>
                             <div>
+                                {alertMessage &&
+                                    <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
+                                }
                                 <button className="btn btn m-1 btn-primary" id='A' onClick={handleBarGraph}>Age</button>
                                 <button className="btn btn m-1 btn-primary" id='B' onClick={handleBarGraph}>Sex</button>
                                 <button className="btn btn m-1 btn-primary" id='C' onClick={handleBarGraph}>Race</button>
@@ -64,16 +77,18 @@ export default function Lifestyle(props) {
                                     a bit uncomfortable. Where do I start? What should I write down? How do I collect my thoughts and
                                     represent them well on paper?
                                     
-                                    At iMental, we want to provide resources to get you started on journaling! Below are template options
-                                    for what kind of journaling you need, layout and for particular moods! </p>
-                                    <a href="https://docdro.id/nn6htqY" download> Weekly Reflection </a>
-                                    <a href="https://docdro.id/EBafJp9" download> Habit Tracker </a>
+                                    At iMental, we want to provide resources to get you started on journaling! Below are sample templates
+                                    to help you get started! </p>
+                                    <ul>
+                                        <li><a href="https://docdro.id/nn6htqY" download> Weekly Reflection </a></li>
+                                        <li><a href="https://docdro.id/EBafJp9" download> Habit Tracker </a></li>
+                                    </ul>
                         </div>
                     </div>
                     <div className="card">
                         <div className="card-body">
                         <h2>Recommended Podcasts:</h2>
-                        <p>How does one navigate through life? With all the information given about mental health, it is
+                        <p>How does one navigate through life other than therapy and counseling? With all the information given about mental health, it is
                             natural to learn through mediums other than surveys and reading. Here at iMental, we value
                             podcasts as they are great sources of information with hosts that provide high quality research
                             on mental health topics. Additionally, in our busy life, podcasts makes it easier for us to gain
