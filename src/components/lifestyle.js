@@ -38,6 +38,7 @@ export default function Lifestyle(props) {
                                 {alertMessage &&
                                     <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
                                 }
+                                <h3>Percentages of Received Therapy/Counseling</h3>
                                 <button className="btn btn m-1 btn-primary" id='A' onClick={handleBarGraph}>Age</button>
                                 <button className="btn btn m-1 btn-primary" id='B' onClick={handleBarGraph}>Sex</button>
                                 <button className="btn btn m-1 btn-primary" id='C' onClick={handleBarGraph}>Race</button>
@@ -59,7 +60,6 @@ export default function Lifestyle(props) {
                                         }
                                     ]}
                                     layout = {{
-                                        title: "Percentage of Mental Health Treatments",
                                         paper_bgcolor: 'rgba(245,246,249,1)',
                                         plot_bgcolor: 'rgba(245,246,249,1)'
                                     }}
