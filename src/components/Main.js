@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Plot from "react-plotly.js";
 import { Alert } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 export default function Main(props) {
     useEffect(() => {
@@ -8,17 +10,24 @@ export default function Main(props) {
       }, []);
     const [graphData, setGraphData] = useState([]);
     const [alertMessage, setAlertMessage] = useState(null);
+    const [isQuerying, setIsQuerying] = useState(false); //for spinner
     const [data, setData] = useState({types:['Overall'], percent:[21]});
-    
-    fetch("/TopicData.json")
-    .then((response) => {
-        return response.json();
-    }).then((data) => {
-        setGraphData(data);
-    })
-    .catch((error) => {
-        setAlertMessage("Failed to filter. Showing only overall percentage");
-    })
+    useEffect(() => {
+        setAlertMessage(null);
+        setIsQuerying(true);
+        fetch("/TopicData.json")
+        .then((response) => {
+            return response.json();
+        }).then((data) => {
+            setGraphData(data);
+        })
+        .catch((error) => {
+            setAlertMessage("Failed to filter. Showing only overall percentage");
+        })
+        .then((search) => {
+            setIsQuerying(false)
+        })
+    }, [])
 
     const dataForGraph = graphData;
     const handleGraph = (event) => {
@@ -48,7 +57,9 @@ export default function Main(props) {
                         <div>
                             <h2>Mental Illness Percentage Graph</h2>
                             <p>This graph observes the total percentage of U.S adults who are suffering from any mental illness. The data was retrieved from <a href="https://www.nimh.nih.gov/health/statistics/mental-illness">National Institute of Mental Health</a>.</p>
+                            <h3>Percentage of U.S. Adults Suffering Mental Illness</h3>
                             <em>Click to filter the graph:</em>
+                            {isQuerying && <FontAwesomeIcon icon={faSpinner} spin size="4x" aria-label="Loading..." aria-hidden="false"/>}
                             {alertMessage &&
                                 <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
                             }
@@ -75,7 +86,6 @@ export default function Main(props) {
                                     }
                                 ]}
                                 layout = {{
-                                    title: "Percentage of U.S. Adults Suffering Mental Illness",
                                     xaxis: {automargin: true},
                                     yaxis: {automargin: true, range: [0, 40],
                                     title: "Percentage(%)"},

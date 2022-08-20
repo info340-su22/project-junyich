@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState }from "react";
 import { Alert } from 'react-bootstrap';
 import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } from 'firebase/database';
-import _ from "lodash"
+import _ from "lodash";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 //Source: https://www.psychiatry.org/psychiatrists/practice/dsm/educational-resources/assessment-measures#section_0
 
@@ -100,17 +102,24 @@ export default function Survey(props) {
     //Parse data
     const [surveyData, setSurveyData] = useState([]);
     const [alertMessage, setAlertMessage] = useState(null);
-    fetch("/SurveyData.json")
-    .then((response) => {
-        return response.json();
-    }).then((data) => {
-        if (data) {
-            setSurveyData(data);
-        }
-    }).catch((error) => {
-        setAlertMessage("Failed to receive data from server.");
-    })
-    
+    const [isQuerying, setIsQuerying] = useState(false); //for spinner
+    useEffect(() =>{
+        setAlertMessage(null);
+        setIsQuerying(true);
+        fetch("/SurveyData.json")
+        .then((response) => {
+            return response.json();
+        }).then((data) => {
+            if (data) {
+                setSurveyData(data);
+            }
+        }).catch((error) => {
+            setAlertMessage("Failed to receive data from server.");
+        })
+        .then((search) => {
+            setIsQuerying(false)
+        })
+    }, [])
     //Firebase database
     const [popularity, setPopularity] = useState({});
     useEffect(() => {
@@ -245,6 +254,7 @@ export default function Survey(props) {
             <section className="survey">
                 <h2>Quick Mental Health Survey</h2>
                 <p className="text-justify">In life, things happen. Helping yourself is actually not that hard! It only takes 3 minutes to complete one survey. Knowing yourself is the first step to recovery!</p>
+                {isQuerying && <FontAwesomeIcon icon={faSpinner} spin size="4x" aria-label="Loading..." aria-hidden="false"/>}
                 {alertMessage &&
                     <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
                 }
