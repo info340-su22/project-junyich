@@ -133,7 +133,7 @@ export default function Survey(props) {
                 setPopularity(newVal);
             }
         })
-    }, []);
+    }, [popularity]);
 
     //Set which disorder
     const [test, setTest] = useState(null);
@@ -152,7 +152,7 @@ export default function Survey(props) {
                 }
             })
         }
-    }, [test]);
+    }, [test, surveyData]);
 
     //Range slider
     const [range, setRange] = useState({});

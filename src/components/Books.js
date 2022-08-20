@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Outlet } from 'react-router-dom';
-
 function BookCard(props) {
     useEffect(() => {
         document.title = "Books Page";  
