@@ -162,30 +162,35 @@ footer {
     font-family: 'Oswald', sans-serif;
 }
 
-#BookList .container {
+#BookPage .container {
     padding-left: 2em;
     max-width: 100%;
     
 }
 
-#BookList {
+#BookPage {
     background-color: #F9DCC4;
 }
 
-#BookList a {
+#BookPage a {
     text-decoration: none;
     color: #22223b;
 }
 
-#BookList .card {
+#BookPage .card {
     width: 18rem;
 
 } 
 
-#BookList h2{
+#BookPage h2{
     background-color: #f08080;
 
-} 
+}
+
+#BookDetailRow .img {
+    width: 5rem;
+    height: 10rem;
+}
 
 #Recommanded_Book {
     margin: 0;

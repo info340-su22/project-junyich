@@ -15,7 +15,7 @@ export default function NavBar(props) {
                     <div className="icon">
                         
                         <Link to={"/main"}>
-                            <img className="header-item2" src="img/imentalPSed.png" alt="icon of iMental" />
+                            <img className="header-item2" src="../img/favicon.ico" alt="icon of iMental" />
                         </Link>
 
                     </div>

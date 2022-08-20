@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
+
+import { Outlet } from 'react-router-dom';
+
 function BookCard(props) {
     useEffect(() => {
         document.title = "Books Page";  
@@ -10,19 +14,19 @@ function BookCard(props) {
     return (
         <div className='col-sm-12 col-md-6 col-xl-4' id="BookCard">
             <div className='card m-3' key={bookData.title}>
-                <a href={bookData.link}>
+                <Link to={"/books/" + bookData.title}>
                     <img className='card-img-top align-middle' src={bookData.imageLink} alt={bookData.title} />
                     <div className="card-body">
                         <h3 className="card-title font-italic">{bookData.title}</h3>
                         <p className="card-text">{authorAndYearStr}</p>
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
     )
 }
 
-export default function Books(props) {
+export function Books(props) {
     const [userInput, setUserInput] = useState('');
 
     const applyFilter = (userInputStr) => {
@@ -58,16 +62,16 @@ export default function Books(props) {
 
     return (
         
-        <section id='BookList'>
-            <h2 className='mb-5 text-center p-3'>Book Gallery</h2>
+        <div>
             <BookSearchForm filterFunction={applyFilter} />
             <div className='container ml-0'>
                 <div className='card-deck align-self-center'>
                     {notFoundBook}
                     {bookCardArray}
+                    
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 
